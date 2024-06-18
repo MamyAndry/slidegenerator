@@ -1,0 +1,37 @@
+body{
+    font-size: large;
+}
+.form-container{
+    width: 80%;
+    margin: auto;
+    margin-top: 2%;
+}
+.form-group{
+    width: auto;
+    padding: 1%;
+}
+.row{
+    width: auto;
+    padding: 1%;
+}
+input select{
+    width: 100%;
+}
+
+.button-label{
+    margin-right: 70%;
+}
+
+.btn{
+    width: 10%;
+    min-width: fit-content;
+    // font-size: large;
+}
+
+.list-group-item{
+    margin-top: 1%;
+}
+
+#hira-fandraisana{
+    visibility: hidden;
+}
