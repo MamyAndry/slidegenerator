@@ -16,6 +16,8 @@
 <body>
     <%@ include file = "header.html" %>
         <div class="form-container">
+
+        <h2>Famokarana Programa</h2>
         <form action="treatment-programa" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col">
@@ -216,7 +218,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hira atao mandritrin'ny Fotoam-pivavahana</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hira atao mandritry ny Fotoam-pivavahana</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -242,7 +244,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hira atao mandritrin'ny Rakitra</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hira atao mandritry ny Rakitra</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -267,7 +269,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hira atao mandritrin'ny fizarana ny kapoaka sy ny mofo</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hira atao mandritry ny fizarana ny kapoaka sy ny mofo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -292,7 +294,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Hira atao mandritrin'ny fanangonana ny kapoaka sy fanataterana ny Rakitra</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Hira atao mandritry ny fanangonana ny kapoaka sy fanataterana ny Rakitra</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

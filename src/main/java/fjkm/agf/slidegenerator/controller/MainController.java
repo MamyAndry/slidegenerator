@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
         @GetMapping
         public String index(Model model){
-            model.addAttribute("message", "HELLO");
+            model.addAttribute("message", "TONGASOA");
             // String[] list = {};
             // model.addAttribute("list", list);
             return "index";
@@ -53,8 +53,21 @@ import org.springframework.web.bind.annotation.RequestParam;
                 return "error";
             }
         }
+
+        @GetMapping("formHiraRehetra")
+        public String formHiraRehetra(Model model) {
+            HiraRehetra hiraRehetra = new HiraRehetra();
+            try {
+                hiraRehetra.init();
+                model.addAttribute("list", hiraRehetra.getLisitraNomeraoHira());
+                return "formHiraRehetra";
+            } catch (Exception e) {
+                model.addAttribute("message", e.getMessage());
+                return "error";
+            }
+        }
         @GetMapping("treatment-hira")
-        public String getMethodName(@RequestParam(name = "path") String path, @RequestParam(name = "fontFamily") String fontFamily, @RequestParam(name = "fontSize") double fontSize, @RequestParam(name = "hira") String hira, Model model) {
+        public String treatmentHira(@RequestParam(name = "path") String path, @RequestParam(name = "fontFamily") String fontFamily, @RequestParam(name = "fontSize") double fontSize, @RequestParam(name = "hira") String hira, Model model) {
             HiraRehetra hiraRehetra = new HiraRehetra();
             try {
                 hiraRehetra.init();
@@ -70,6 +83,21 @@ import org.springframework.web.bind.annotation.RequestParam;
                 return "error";
             }
         }
+        @GetMapping("treatment-hira-rehetra")
+        public String treatmentHiraRehetra(@RequestParam(name = "path") String path, @RequestParam(name = "fontFamily") String fontFamily, @RequestParam(name = "fontSize") double fontSize, Model model) {
+            HiraRehetra hiraRehetra = new HiraRehetra();
+            try {
+                hiraRehetra.init();
+                hiraRehetra.generateAll(path, fontFamily, fontSize);
+                String message = "Voaorina avokoa ny hira rehetra";
+                model.addAttribute("message", message);
+                return "index";
+            } catch (Exception e) {
+                model.addAttribute("message", e.getMessage());
+                return "error";
+            }
+        }
+        
 
         @PostMapping("treatment-programa")
         public String treatProgramaSlide(@ModelAttribute SlidePecularitiesMapping pecularitiesMapping, Model model) {

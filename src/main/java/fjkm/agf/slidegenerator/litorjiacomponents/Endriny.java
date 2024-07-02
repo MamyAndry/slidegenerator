@@ -58,7 +58,9 @@ public class Endriny {
         String key = "tapany_";
         HiraFihirana hiraFihirana = null;
         hiraFihirana = hiraRehetra.getLisitraHira().get(hiraFidirana);
+        if(hiraFihirana == null) return;
         hiraFihirana.setFontFamily(this.getFontFamilyHira());
+        System.out.println(hiraFihirana.getFontFamily());
         hiraFihirana.setFontSize(this.getFontSizeHira());
         hiraFihirana.constructHiraPresentation(path);
         Slide slide = new Slide();
@@ -86,6 +88,7 @@ public class Endriny {
             } else if(temp.getTitle().equals("Rakitra")){
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getRakitraPicture());
+                System.out.println(hiraRakitra.length);
                 for (String elt : hiraRakitra) {                    
                     hiraFihirana = hiraRehetra.getLisitraHira().get(elt);
                     hiraFihirana.setFontFamily(this.getFontFamilyHira());
@@ -119,6 +122,7 @@ public class Endriny {
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getAsaVavolombelonaPicture());
                 for( String elt : asaVavolombelona){
+                    if(elt.equals("")) continue;
                     hiraFihirana = hiraRehetra.getLisitraHira().get(elt);
                     hiraFihirana.setFontFamily(this.getFontFamilyHira());
                     hiraFihirana.setFontSize(this.getFontSizeHira());
@@ -133,6 +137,7 @@ public class Endriny {
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getAsanAndriamanitraPicture());
                 for( String elt : asanAndriamanitra){
+                    if(elt.equals("")) continue;
                     slide.setText(elt);
                     slide.createSlide(ppt, "");
                 } 
@@ -176,7 +181,8 @@ public class Endriny {
             } else if(key.equals("tapany_7")){
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, "");
-                for (String elt : hiraFizarana) {               
+                for (String elt : hiraFizarana) {  
+                    if(elt.equals("")) continue;             
                     hiraFihirana = hiraRehetra.getLisitraHira().get(elt);
                     hiraFihirana.setFontFamily(this.getFontFamilyHira());
                     hiraFihirana.setFontSize(this.getFontSizeHira());
@@ -188,6 +194,7 @@ public class Endriny {
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, "");
                 for (String elt : hiraFanangonana) {
+                    if(elt.equals("")) continue;
                     hiraFihirana = hiraRehetra.getLisitraHira().get(elt);
                     hiraFihirana.setFontFamily(this.getFontFamilyHira());
                     hiraFihirana.setFontSize(this.getFontSizeHira());

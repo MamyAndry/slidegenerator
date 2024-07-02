@@ -52,4 +52,12 @@ public class HiraRehetra {
         Collections.sort(lisitra);
         this.setLisitraNomeraoHira(lisitra);
     }
+
+    public void generateAll(String path, String fontFamily, double fontSize) throws Exception{
+        for(HiraFihirana hira : this.getLisitraHira().values()){
+            hira.setFontFamily(fontFamily);
+            hira.setFontSize(fontSize);
+            hira.constructHiraPresentation(path);
+        }
+    }
 }
