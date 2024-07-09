@@ -52,13 +52,13 @@ public class LitorjiaFJKM extends LitorjiaConfiguration{
         //ADDING SLIDE
         HiraRehetra hiraRehetra = new HiraRehetra();
         hiraRehetra.init();
-        Endriny temp = this.getLitorjia().get(endriny);
-        temp.setFontFamily(fontFamily);
-        temp.setFontFamilyHira(fontFamilyHira);
-        temp.setFontSize(fontSize);
-        temp.setFontSizeHira(fontSizeHira);
-        temp.setImageOpacity(imageOpacity);
-        temp.generateSlide(
+        Endriny endrinyLitorjia = this.getLitorjia().get(endriny);
+        endrinyLitorjia.setFontFamily(fontFamily);
+        endrinyLitorjia.setFontFamilyHira(fontFamilyHira);
+        endrinyLitorjia.setFontSize(fontSize);
+        endrinyLitorjia.setFontSizeHira(fontSizeHira);
+        endrinyLitorjia.setImageOpacity(imageOpacity);
+        endrinyLitorjia.generateSlide(
             hiraRehetra,
             path,
             vakitenyFiderana,
@@ -72,13 +72,13 @@ public class LitorjiaFJKM extends LitorjiaConfiguration{
             asanAndriamanitra,
             ppt);
         if(fandraisana){
-            temp = this.getLitorjia().get("fandraisana_fanasan_ny_tompo");
-            temp.setFontFamily(fontFamily);
-            temp.setFontFamilyHira(fontFamilyHira);
-            temp.setFontSize(fontSize);
-            temp.setFontSizeHira(fontSizeHira);
-            temp.setImageOpacity(imageOpacity);
-            temp.generateSlideFandraisana(            
+            endrinyLitorjia = this.getLitorjia().get("fandraisana_fanasan_ny_tompo");
+            endrinyLitorjia.setFontFamily(fontFamily);
+            endrinyLitorjia.setFontFamilyHira(fontFamilyHira);
+            endrinyLitorjia.setFontSize(fontSize);
+            endrinyLitorjia.setFontSizeHira(fontSizeHira);
+            endrinyLitorjia.setImageOpacity(imageOpacity);
+            endrinyLitorjia.generateSlideFandraisana(            
                 hiraRehetra,
                 path,
                 hiraFanehoana,

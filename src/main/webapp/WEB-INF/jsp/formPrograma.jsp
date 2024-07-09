@@ -64,16 +64,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Hira Famaranana</label>
-                        <select name="hiraFamaranana"  class="form-control">
-                            <% for (String item : lst) { %>
-                                <option value="<%=item%>"><%=ObjectUtility.sexifyToUpperCase(item)%></option>
-                            <% } %>
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <label class="form-label">Perikopa</label>
-                        <textarea class="form-control" name="vakiteny" rows="3"></textarea>
+                        <textarea class="form-control" name="perikopa" rows="3"></textarea>
                     </div>
                     <div class="mb-3" id="vavolombelona">
                         <label class="form-label">Asa vavolombelona</label>
@@ -179,6 +171,16 @@
                                     <div class='col'>
                                         <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#fanangonana'>Manampy</button></div></div><div class='container' id='hira-fanangonana-voasafidy'>
                                     </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label class="form-label">Hira Famaranana Fandraisana</label>
+                                <select name="hiraFamaranana"  class="form-control">
+                                    <% for (String item : lst) { %>
+                                        <option value="<%=item%>"><%=ObjectUtility.sexifyToUpperCase(item)%></option>
+                                    <% } %>
+                                </select>
                             </div>
                         </div>
                     </div>

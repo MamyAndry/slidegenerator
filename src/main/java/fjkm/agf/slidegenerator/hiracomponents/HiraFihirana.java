@@ -1,5 +1,6 @@
 package fjkm.agf.slidegenerator.hiracomponents;
 
+import org.apache.commons.math3.geometry.euclidean.threed.Line;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
 
 import fjkm.agf.slidegenerator.powerpoint.Presentation;
@@ -14,7 +15,7 @@ public class HiraFihirana {
     String lohateny;
     String[] mpanoratra;
     Hira[] hira;
-    String fontFamily = "Calibri";
+    String fontFamily;
     double fontSize = 80.0;
     
     public String getFiverenana(){
@@ -43,6 +44,17 @@ public class HiraFihirana {
         return res;
     }
 
+    public boolean containsDigit(String str){
+        boolean isContainingDigit = false;
+        int i = 2;
+        while(!isContainingDigit){
+            if(i == 10) break;
+            if(str.contains(""+i))
+                isContainingDigit = true; 
+            i++;
+        }
+        return isContainingDigit;
+    }
 
     public String constructHira(String andininy){
         String res = "";
@@ -84,11 +96,19 @@ public class HiraFihirana {
         slide.createSlide(ppt, "");
         int limit = lines.length -1;
         String line = "";
-        for (int i = 0; i <= limit ; i += 2) {
+        int i = 0;
+        while(i <= limit ) {
             if(i != limit){
-                line = lines[i] + " " + lines[i+1];
+                if(this.containsDigit(lines[i+1])){
+                    line = lines[i];
+                    i++;
+                }else{
+                    line = lines[i] + " " + lines[i+1]; 
+                    i += 2;
+                }
             }else{
                 line = lines[i];
+                i += 2;
             }
             slide.setText(line.toUpperCase());
             slide.createSlideHira(ppt);

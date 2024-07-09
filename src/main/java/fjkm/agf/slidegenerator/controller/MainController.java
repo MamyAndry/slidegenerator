@@ -74,7 +74,7 @@ import org.springframework.web.bind.annotation.RequestParam;
                 HiraFihirana hiraHovokarina = hiraRehetra.getLisitraHira().get(hira);
                 hiraHovokarina.setFontFamily(fontFamily);
                 hiraHovokarina.setFontSize(fontSize);
-                hiraHovokarina.constructHiraPresentation(path);
+                hiraHovokarina.constructHiraPresentation(path); 
                 String message = "Voaorina avokoa ny hira " + ObjectUtility.sexifyToUpperCase(hira);
                 model.addAttribute("message", message);
                 return "index";
@@ -107,7 +107,7 @@ import org.springframework.web.bind.annotation.RequestParam;
                 litorjia.init();
                 String[] asaVavolombelona = pecularitiesMapping.getAsaVavolombelona().split("\n");
                 String[] asanAndriamanitra = pecularitiesMapping.getAsanAndriamanitra().split("\n");
-                String[] vakiteny = pecularitiesMapping.getVakiteny().split("\n");
+                String[] vakiteny = pecularitiesMapping.getPerikopa().split("\n");
                 litorjia.generateProgram(
                     pecularitiesMapping.getName(),
                     pecularitiesMapping.getFontFamily(),

@@ -4,6 +4,7 @@
 <%
     ArrayList<String> lst = (ArrayList<String>)request.getAttribute("list");
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

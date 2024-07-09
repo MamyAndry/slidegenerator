@@ -18,7 +18,7 @@ public class SlidePecularitiesMapping {
     String hiraFamaranana;
     String[] hira;
     String[] hiraRakitra;
-    String vakiteny;
+    String perikopa;
     String[] hiraFizarana;
     String[] hiraFanangonana;
     String asaVavolombelona;

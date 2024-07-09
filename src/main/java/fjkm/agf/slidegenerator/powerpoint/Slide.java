@@ -159,8 +159,8 @@ public class Slide {
         XSLFTextShape titleShape = slide.getPlaceholder(0);
         titleShape.clearText();   
         XSLFTextParagraph p = titleShape.addNewTextParagraph();
-        p.setTextAlign(TextAlign.CENTER);
         XSLFTextRun r = p.addNewTextRun();  
+        p.setTextAlign(TextAlign.CENTER);
         r.setText(this.getText());
         r.setBold(this.isBold());
         r.setFontFamily(this.getFontFamily());

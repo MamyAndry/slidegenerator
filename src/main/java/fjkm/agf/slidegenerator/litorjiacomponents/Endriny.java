@@ -14,10 +14,11 @@ import lombok.Getter;
 @Setter @Getter
 public class Endriny {
     HashMap<String, Tapany> fizarana;
-    String fontFamily;
-    String fontFamilyHira;
+    String fontFamily = "Calibri";
+    String fontFamilyHira = "Calibri";
     String vavakaPicture = "vavaka.jpg";
     String rakitraPicture = "";
+    String fotoanaNyAnkizyPicture = "fotoanaNyAnkizy.jpg";
     String hiraPicture = "hira.jpg";
     String toritenyPicture = "fiangonana.jpg";
     String tsodranoPicture = "tsodrano.jpg";
@@ -56,11 +57,10 @@ public class Endriny {
         //ADDING SLIDE
         int i = 0;
         String key = "tapany_";
-        HiraFihirana hiraFihirana = null;
+        HiraFihirana hiraFihirana;
         hiraFihirana = hiraRehetra.getLisitraHira().get(hiraFidirana);
         if(hiraFihirana == null) return;
         hiraFihirana.setFontFamily(this.getFontFamilyHira());
-        System.out.println(hiraFihirana.getFontFamily());
         hiraFihirana.setFontSize(this.getFontSizeHira());
         hiraFihirana.constructHiraPresentation(path);
         Slide slide = new Slide();
@@ -74,6 +74,9 @@ public class Endriny {
             if(temp.getTitle().equals("Fiderana an'Andriamanitra") && temp.isVakiteny()){
                 slide.setText(vakitenyFiderana);
                 slide.createSlide(ppt, "");
+            } else if(temp.getTitle().equals("Fotoana ho an'ny ankizy sy ny Tanora")){
+                slide.setText(temp.getTitle());
+                slide.createSlide(ppt, this.getFotoanaNyAnkizyPicture());
             } else if(temp.getTitle().equals("Vakiteny Sekoly Alahady") && temp.isVakiteny()){
                 slide.setText(vakitenySA);
                 slide.createSlide(ppt, "");
@@ -88,8 +91,7 @@ public class Endriny {
             } else if(temp.getTitle().equals("Rakitra")){
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getRakitraPicture());
-                System.out.println(hiraRakitra.length);
-                for (String elt : hiraRakitra) {                    
+                for (String elt : hiraRakitra) {  
                     hiraFihirana = hiraRehetra.getLisitraHira().get(elt);
                     hiraFihirana.setFontFamily(this.getFontFamilyHira());
                     hiraFihirana.setFontSize(this.getFontSizeHira());
@@ -97,7 +99,6 @@ public class Endriny {
                     slide.setText(ObjectUtility.sexifyToUpperCase(elt));
                     slide.createSlide(ppt, this.getHiraPicture());
                 }
-                    slide.createSlide(ppt, this.getHiraPicture());
             } else if(temp.getTitle().equals("Fanekem-pinoana")){
                 slide.setText((temp.getTitle() + " " + fanekemPinoana).toUpperCase());
                 slide.createSlide(ppt, "");
@@ -121,16 +122,16 @@ public class Endriny {
             }else if(temp.getTitle().equals("Asa Vavolombelona")){
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getAsaVavolombelonaPicture());
-                for( String elt : asaVavolombelona){
-                    if(elt.equals("")) continue;
-                    hiraFihirana = hiraRehetra.getLisitraHira().get(elt);
+                for( String asa : asaVavolombelona){
+                    if(asa.equals("")) continue;
+                    hiraFihirana = hiraRehetra.getLisitraHira().get(hira[i]);
                     hiraFihirana.setFontFamily(this.getFontFamilyHira());
                     hiraFihirana.setFontSize(this.getFontSizeHira());
                     hiraFihirana.constructHiraPresentation(path);
-                    slide.setText(elt);
-                    slide.createSlide(ppt, "");
                     slide.setText(ObjectUtility.sexifyToUpperCase(hira[i]));
                     slide.createSlide(ppt, this.getHiraPicture());
+                    slide.setText(asa);
+                    slide.createSlide(ppt, "");
                     i++;
                 }
             }else if(temp.getTitle().equals("Asan'\nAndriamanitra")){
