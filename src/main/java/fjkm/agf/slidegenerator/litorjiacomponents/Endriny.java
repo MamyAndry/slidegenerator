@@ -73,7 +73,7 @@ public class Endriny {
             Tapany temp = this.getFizarana().get(key + j);
             if(temp.getTitle().equals("Fiderana an'Andriamanitra") && temp.isVakiteny()){
                 slide.setText(vakitenyFiderana);
-                slide.createSlide(ppt, "");
+                slide.createSlide(ppt, this.getVakitenyPicture());
             } else if(temp.getTitle().equals("Fotoana ho an'ny ankizy sy ny Tanora")){
                 slide.setText(temp.getTitle());
                 slide.createSlide(ppt, this.getFotoanaNyAnkizyPicture());

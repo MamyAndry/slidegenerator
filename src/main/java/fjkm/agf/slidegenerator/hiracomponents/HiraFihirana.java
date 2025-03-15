@@ -98,18 +98,20 @@ public class HiraFihirana {
         String line = "";
         int i = 0;
         while(i <= limit ) {
-            if(i != limit){
-                if(this.containsDigit(lines[i+1])){
-                    line = lines[i];
-                    i++;
-                }else{
-                    line = lines[i] + " " + lines[i+1]; 
-                    i += 2;
-                }
-            }else{
-                line = lines[i];
-                i += 2;
-            }
+            // if(i != limit){
+            //     if(this.containsDigit(lines[i+1])){
+            //         line = lines[i];
+            //         i++;
+            //     }else{
+                // line = lines[i] + " " + lines[i+1]; 
+                    // i += 2;
+                    //     }
+                    // }else{
+            //     line = lines[i];
+            //     i += 2;
+            // }
+            line = lines[i]; 
+            i += 1;
             slide.setText(line.toUpperCase());
             slide.createSlideHira(ppt);
         }
