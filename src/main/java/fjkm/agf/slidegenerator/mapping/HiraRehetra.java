@@ -32,6 +32,7 @@ public class HiraRehetra {
             mapping.put(set.getKey(), set.getValue());
         }
         for(Map.Entry<String, HiraFihirana> set : ff.getFihirana().entrySet()){
+	System.out.println(set.getValue());
             mapping.put(set.getKey(), set.getValue());
         }
         for(Map.Entry<String, HiraFihirana> set : ant.getFihirana().entrySet()){

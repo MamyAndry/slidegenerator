@@ -100,7 +100,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Haben'ny Tarehan-tsoratra</label>
-                        <input class="form-control" type="number" name="fontSize" value="80.0">
+                        <input class="form-control" type="number" name="fontSize" value="100">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Tarehan-tsoratra ho an'ny fafan'ny hira</label>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Haben'ny Tarehan-tsoratra an'ny fafan'ny hira</label>
-                        <input class="form-control" type="number" name="fontSizeHira" value="80.0">
+                        <input class="form-control" type="number" name="fontSizeHira" value="100">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Tahan-pahatakonan'ny sary</label>

@@ -12,7 +12,7 @@ public class FihiranaFanampiny extends HiraConfiguration{
 
     @Override
     public void init() throws Exception {
-        setJsonPath("02_fihirana_fanampiny.json");
+        setJsonPath("02_fihirana_fanampiny.json"); 
         FihiranaFanampiny temp = this.read();
         setFihirana(temp.getFihirana());
     }

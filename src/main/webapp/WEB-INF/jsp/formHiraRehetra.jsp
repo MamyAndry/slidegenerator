@@ -29,7 +29,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Haben'ny tarehan-tsoratra</label>
-                <input type="number" class="form-control" name="fontSize" value="80">
+                <input type="number" class="form-control" name="fontSize" value="100">
             </div>
             <div class="mb-3">
                 <button id="validate_vakiteny" class="btn btn-primary" type="submit">Hamarino</button>

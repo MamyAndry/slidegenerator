@@ -88,81 +88,76 @@
                     "hira":false
                 },
                 "tapany_18": {
-                    "title":"Hira",
-                    "vakiteny":false,
-                    "hira":true
-                },
-                "tapany_19": {
                     "title":"Fanolorana ny Rakitra",
                     "vakiteny":false,
                     "hira":false
                 },
-                "tapany_20": {
+                "tapany_19": {
                     "title":"Fankalazana ny Tenin'\nAndriamanitra",
                     "vakiteny":false,
                     "hira":false
                 },
-                "tapany_21": {
+                "tapany_20": {
                     "title":"Fotoana ho an'ny ankizy sy ny Tanora",
                     "vakiteny":false,
                     "hira":false
                 },
-                "tapany_22": {
+                "tapany_21": {
                     "title":"Vakiteny Sekoly Alahady",
                     "vakiteny":true,
                     "hira":false
                 },
-                "tapany_23": {
+                "tapany_22": {
                     "title":"Hira Sekoly Alahady",
                     "vakiteny":false,
                     "hira":true
                 },
-                "tapany_24": {
+                "tapany_23": {
                     "title":"Vavaka",
                     "vakiteny":false,
                     "hira":false
                 },
-                "tapany_25": {
+                "tapany_24": {
                     "title":"Vakiteny",
                     "vakiteny":true,
                     "hira":false
                 },
-                "tapany_26": {
+                "tapany_25": {
                     "title":"Hira",
                     "vakiteny":false,
                     "hira":true
                 },
-                "tapany_27": {
+                "tapany_26": {
                     "title":"Toriteny",
                     "vakiteny":false,
                     "hira":false
                 },
-                "tapany_28": {
+                "tapany_27": {
                     "title":"Vavaka",
                     "vakiteny":false,
                     "hira":false
                 },
-                "tapany_29": {
+                "tapany_28": {
                     "title":"Asa Vavolombelona",
                     "vakiteny":false,
                     "hira":false
                 },
-                "tapany_30": {
+                "tapany_29": {
                     "title":"Tsodrano",
                     "vakiteny":false,
                     "hira":false
                 },
-                "tapany_31": {
+                "tapany_30": {
                     "title":"Hira",
                     "vakiteny":false,
                     "hira":true
                 },
-                "tapany_32": {
+                "tapany_31": {
                     "title":"Trinite",
                     "vakiteny":false,
                     "hira":true
                 },
-                "tapany_33": {
+                "tapany_32": {
                     "title":"Firavana",
                     "vakiteny":false,
                     "hira":true
@@ -1028,6 +1023,11 @@
                 },
                 "tapany_13": {
                     "title":"Famaranana",
+                    "vakiteny":false,
+                    "hira":false
+                },
+                "tapany_14": {
+                    "title":"Firavana",
                     "vakiteny":false,
                     "hira":false
                 }

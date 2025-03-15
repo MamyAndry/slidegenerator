@@ -73,14 +73,21 @@ public class Endriny {
             Tapany temp = this.getFizarana().get(key + j);
             if(temp.getTitle().equals("Fiderana an'Andriamanitra") && temp.isVakiteny()){
                 slide.setText(vakitenyFiderana);
+<<<<<<< HEAD
+                slide.createSlide(ppt, this.getVakitenyPicture());
+=======
                 slide.createSlide(ppt, "");
+<<<<<<< Updated upstream
+=======
+>>>>>>> 02d1b31d5cfe41cb5cd2e15e451b583d377c41bf
+>>>>>>> Stashed changes
             } else if(temp.getTitle().equals("Fotoana ho an'ny ankizy sy ny Tanora")){
                 slide.setText(temp.getTitle());
                 slide.createSlide(ppt, this.getFotoanaNyAnkizyPicture());
             } else if(temp.getTitle().equals("Vakiteny Sekoly Alahady") && temp.isVakiteny()){
                 slide.setText(vakitenySA);
-                slide.createSlide(ppt, "");
-            } else if(temp.getTitle().contains("Hira") && temp.isHira()){
+                slide.createSlide(ppt, this.getVakitenyPicture());
+            } else if(temp.getTitle().contains("Hira")){
                 hiraFihirana = hiraRehetra.getLisitraHira().get(hira[i]);
                 hiraFihirana.setFontFamily(this.getFontFamilyHira());
                 hiraFihirana.setFontSize(this.getFontSizeHira());
@@ -175,9 +182,6 @@ public class Endriny {
             if(key.equals("tapany_2")){
                 hiraRehetra.getLisitraHira().get(hiraFanehoana).constructHiraPresentation(path);     
                 slide.setText(ObjectUtility.sexifyToUpperCase(hiraFanehoana));
-                slide.createSlide(ppt, this.getHiraPicture());
-                slide.createSlide(ppt, "");
-                slide.setText(hiraFanehoana);
                 slide.createSlide(ppt, this.getHiraPicture());
             } else if(key.equals("tapany_7")){
                 slide.setText(temp.getTitle().toUpperCase());
