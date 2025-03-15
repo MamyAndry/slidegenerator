@@ -161,14 +161,7 @@ public class Slide {
         XSLFTextParagraph p = titleShape.addNewTextParagraph();
         XSLFTextRun r = p.addNewTextRun();  
         p.setTextAlign(TextAlign.CENTER);
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
         r.setText(this.getText().toUpperCase());
-=======
->>>>>>> Stashed changes
-        r.setText(this.getText());
->>>>>>> 02d1b31d5cfe41cb5cd2e15e451b583d377c41bf
         r.setBold(this.isBold());
         r.setFontFamily(this.getFontFamily());
         r.setFontColor(this.getColor());
