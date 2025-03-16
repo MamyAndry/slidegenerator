@@ -1,7 +1,7 @@
 {
     "fihirana" : {
         "hf_01": {
-            "laharana": "1",
+            "laharana": "01",
             "sokajy": "Hira Fanampiny",
             "lohateny": "Hira Faneva Faha-30 Taonan'ny Fjkm",
             "mpanoratra": [
@@ -30,7 +30,7 @@
             ]
         },
         "hf_02": {
-            "laharana": "2",
+            "laharana": "02",
             "sokajy": "Hira Fanampiny",
             "lohateny": "He! Manolo Tena",
             "mpanoratra": [
@@ -64,7 +64,7 @@
             ]
         },
         "hf_03": {
-            "laharana": "3",
+            "laharana": "03",
             "sokajy": "Hira Fanampiny",
             "lohateny": "Jesoa Vato Fehizoro",
             "mpanoratra": [
@@ -88,7 +88,7 @@
             ]
         },
         "hf_04": {
-            "laharana": "4",
+            "laharana": "04",
             "sokajy": "Hira Fanampiny",
             "lohateny": "Ry Fanahy O, Midina",
             "mpanoratra": [
@@ -112,7 +112,7 @@
             ]
         },
         "hf_05": {
-            "laharana": "5",
+            "laharana": "05",
             "sokajy": "Hira Fanampiny",
             "lohateny": "Izaho No Fananganana Ny Maty",
             "mpanoratra": [
@@ -136,7 +136,7 @@
             ]
         },
         "hf_06": {
-            "laharana": "6",
+            "laharana": "06",
             "sokajy": "Hira Fanampiny",
             "lohateny": "Ny Teninao",
             "mpanoratra": [
@@ -160,7 +160,7 @@
             ]
         },
         "hf_07": {
-            "laharana": "7",
+            "laharana": "07",
             "sokajy": "Hira Fanampiny",
             "lohateny": "Tsy Hainay Ny Hangina",
             "mpanoratra": [
@@ -184,7 +184,7 @@
             ]
         },
         "hf_08": {
-            "laharana": "8",
+            "laharana": "08",
             "sokajy": "Hira Fanampiny",
             "lohateny": "Masoko manganohano",
             "mpanoratra": [
@@ -208,7 +208,7 @@
             ]
         },
         "hf_09": {
-            "laharana": "9",
+            "laharana": "09",
             "sokajy": "Hira Fanampiny",
             "lohateny": "Isaorana anie Jehovah",
             "mpanoratra": [

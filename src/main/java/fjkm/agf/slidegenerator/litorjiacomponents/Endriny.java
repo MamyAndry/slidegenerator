@@ -34,7 +34,7 @@ public class Endriny {
     public String turnArrayToUniqueString(String[] vakiteny){
         String res = "";
         for (String elt : vakiteny) {
-            res += elt + "\n";
+            res += elt;
         }
         return res;
     }
