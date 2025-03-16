@@ -1,6 +1,5 @@
 package fjkm.agf.slidegenerator.powerpoint;
 
-
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.AlphaComposite;
@@ -14,13 +13,10 @@ import java.awt.Graphics2D;
 import org.apache.poi.sl.usermodel.TextParagraph.TextAlign;
 
 import org.apache.poi.sl.usermodel.PictureData;
-import org.apache.poi.xslf.usermodel.SlideLayout;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
 import org.apache.poi.xslf.usermodel.XSLFPictureData;
 import org.apache.poi.xslf.usermodel.XSLFPictureShape;
 import org.apache.poi.xslf.usermodel.XSLFSlide;
-import org.apache.poi.xslf.usermodel.XSLFSlideLayout;
-import org.apache.poi.xslf.usermodel.XSLFSlideMaster;
 import org.apache.poi.xslf.usermodel.XSLFTextParagraph;
 import org.apache.poi.xslf.usermodel.XSLFTextRun;
 import org.apache.poi.xslf.usermodel.XSLFTextShape;
@@ -29,8 +25,13 @@ import fjkm.agf.slidegenerator.utils.Misc;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+import java.awt.*;
+
+@Getter
+@Setter
 public class Slide {
+    int slideWidth = 1920;
+    int slideheight = 1080;
     String text;
     boolean bold = false;
     Color color = Color.BLACK;
@@ -38,17 +39,18 @@ public class Slide {
     String fontFamily = "Cambria";
     double imageOpacity = 30.0;
 
-    public int calculOpacity(double percentage){
+    public int calculOpacity(double percentage) {
         return (int) (255 * percentage) / 100;
     }
 
-    public BufferedImage changeOpacityOfImage(String fileName, double percentage) throws Exception{
-        BufferedImage originalImage = ImageIO.read(new File(Misc.getImagesLocation() + File.separator +  fileName));
+    public BufferedImage changeOpacityOfImage(String fileName, double percentage) throws Exception {
+        BufferedImage originalImage = ImageIO.read(new File(Misc.getImagesLocation() + File.separator + fileName));
 
         // Adjust opacity (example: 0.5 opacity)
         int opacity = calculOpacity(percentage); // 0 (transparent) to 255 (opaque)
-        
-        BufferedImage modifiedImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+
+        BufferedImage modifiedImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(),
+                BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = modifiedImage.createGraphics();
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) opacity / 255f));
         g.drawImage(originalImage, 0, 0, null);
@@ -56,118 +58,119 @@ public class Slide {
         return modifiedImage;
     }
 
-    public void createSlideHira(XMLSlideShow ppt) throws Exception{
-        //ADDING A SLIDE
-        XSLFSlideMaster defaultMaster = ppt.getSlideMasters().get(0);
-        
-        //ADDING THE LAYOUT
-        XSLFSlideLayout layout = defaultMaster.getLayout(SlideLayout.TITLE);
-        XSLFSlide slide = ppt.createSlide(layout);
+    public void createSlideHira(XMLSlideShow ppt) throws Exception {
 
+        ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to 1080
 
-        // Set background image
-        // ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        // ImageIO.write(this.changeOpacityOfImage("SL-103020-37400-03.jpg", this.getImageOpacity()), "png", baos);
-        // byte[] pictureData = baos.toByteArray();
+        // Adding a slide (no layout)
+        XSLFSlide slide = ppt.createSlide();
 
-        // XSLFPictureData pictureIndex = ppt.addPicture(pictureData, PictureData.PictureType.PNG);
+        // Adding title text directly (no placeholder, just text box)
+        XSLFTextShape titleShape = slide.createTextBox();
+        String titleText = this.getText().toUpperCase(); // Your title text
 
-        // XSLFPictureShape pic = slide.createPicture(pictureIndex);
-        // pic.setAnchor(new Rectangle2D.Double(0, 0, ppt.getPageSize().getWidth(), ppt.getPageSize().getHeight()));
-            
-        //ADDING CONTENT
-        XSLFTextShape titleShape = slide.getPlaceholder(0);
-        titleShape.clearText();   
+        // Create text paragraph and run
         XSLFTextParagraph p = titleShape.addNewTextParagraph();
-        p.setTextAlign(TextAlign.CENTER);
-        XSLFTextRun r = p.addNewTextRun();  
-        r.setText(this.getText());
+        XSLFTextRun r = p.addNewTextRun();
+        p.setTextAlign(TextAlign.CENTER); // Center text horizontally
+        r.setText(titleText);
         r.setBold(this.isBold());
         r.setFontFamily(this.getFontFamily());
         r.setFontColor(this.getColor());
         r.setFontSize(this.getFontSize());
 
-        XSLFTextShape subTitleShape = slide.getPlaceholder(1);
-        subTitleShape.clearText();  
+        // Center the title text box
+        int slideWidth = ppt.getPageSize().width;
+        int slideHeight = ppt.getPageSize().height;
+        int titleHeight = ppt.getPageSize().height / 2; // Adjust based on the font size
+        titleShape.setAnchor(
+                new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight)
+        );
     }
 
-    public void createSlideVakiteny(XMLSlideShow ppt, String picture) throws Exception{
-        //ADDING A SLIDE
-        XSLFSlideMaster defaultMaster = ppt.getSlideMasters().get(0);
-        
-        //ADDING THE LAYOUT
-        XSLFSlideLayout layout = defaultMaster.getLayout(SlideLayout.TITLE_AND_CONTENT);
-        XSLFSlide slide = ppt.createSlide(layout);
+    public void createSlideVakiteny(XMLSlideShow ppt, String picture) throws Exception {
+        ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to 1080
 
-        if(!picture.equals("")){
+        // Adding a slide (no layout)
+        XSLFSlide slide = ppt.createSlide();
+
+        // Adding the picture if it's provided
+        if (!picture.equals("")) {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write(this.changeOpacityOfImage(picture, this.getImageOpacity()), "png", baos);
             byte[] pictureData = baos.toByteArray();
 
+            // Add the picture to the slide
             XSLFPictureData pictureIndex = ppt.addPicture(pictureData, PictureData.PictureType.PNG);
-
             XSLFPictureShape pic = slide.createPicture(pictureIndex);
+
+            // Set the picture size to match the new slide size
             pic.setAnchor(new Rectangle2D.Double(0, 0, ppt.getPageSize().getWidth(), ppt.getPageSize().getHeight()));
         }
-        
-        //ADDING CONTENT
-        XSLFTextShape titleShape = slide.getPlaceholder(0);
-        titleShape.clearText();   
+
+        // Adding title text directly (no placeholder, just text box)
+        XSLFTextShape titleShape = slide.createTextBox();
+        String titleText = "VAKITENY"; // Your title text
+
+        // Create text paragraph and run
         XSLFTextParagraph p = titleShape.addNewTextParagraph();
-        p.setTextAlign(TextAlign.CENTER);
-        XSLFTextRun r = p.addNewTextRun();  
-        r.setText("VAKITENY");
+        XSLFTextRun r = p.addNewTextRun();
+        p.setTextAlign(TextAlign.CENTER); // Center text horizontally
+        r.setText(titleText);
         r.setBold(this.isBold());
         r.setFontFamily(this.getFontFamily());
         r.setFontColor(this.getColor());
         r.setFontSize(this.getFontSize());
 
-        XSLFTextShape contentShape = slide.getPlaceholder(1);
-        contentShape.clearText();
-        XSLFTextParagraph p2 = contentShape.addNewTextParagraph();
-        p2.setTextAlign(TextAlign.CENTER);
-        XSLFTextRun r2 = p2
-        .addNewTextRun();  
-        r2.setText(this.getText());
-        r2.setBold(this.isBold());
-        r2.setFontFamily(this.getFontFamily());
-        r2.setFontColor(this.getColor());
-        r2.setFontSize(this.getFontSize()); 
-
+        // Center the title text box
+        int slideWidth = ppt.getPageSize().width;
+        int slideHeight = ppt.getPageSize().height;
+        int titleHeight = ppt.getPageSize().height / 2; // Adjust based on the font size
+        titleShape.setAnchor(
+                new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight)
+        );
     }
 
-    public void createSlide(XMLSlideShow ppt, String picture) throws Exception{
-        //ADDING A SLIDE
-        XSLFSlideMaster defaultMaster = ppt.getSlideMasters().get(0);
-        
-        //ADDING THE LAYOUT
-        XSLFSlideLayout layout = defaultMaster.getLayout(SlideLayout.TITLE);
-        XSLFSlide slide = ppt.createSlide(layout);
+    public void createSlide(XMLSlideShow ppt, String picture) throws Exception {
+        ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to 1080
 
-        if(!picture.equals("")){
+        // Adding a slide (no layout)
+        XSLFSlide slide = ppt.createSlide();
+
+        // Adding the picture if it's provided
+        if (!picture.equals("")) {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write(this.changeOpacityOfImage(picture, this.getImageOpacity()), "png", baos);
             byte[] pictureData = baos.toByteArray();
 
+            // Add the picture to the slide
             XSLFPictureData pictureIndex = ppt.addPicture(pictureData, PictureData.PictureType.PNG);
-
             XSLFPictureShape pic = slide.createPicture(pictureIndex);
+
+            // Set the picture size to match the new slide size
             pic.setAnchor(new Rectangle2D.Double(0, 0, ppt.getPageSize().getWidth(), ppt.getPageSize().getHeight()));
         }
-        
-        //ADDING CONTENT
-        XSLFTextShape titleShape = slide.getPlaceholder(0);
-        titleShape.clearText();   
+
+        // Adding title text directly (no placeholder, just text box)
+        XSLFTextShape titleShape = slide.createTextBox();
+        String titleText = this.getText().toUpperCase(); // Your title text
+
+        // Create text paragraph and run
         XSLFTextParagraph p = titleShape.addNewTextParagraph();
-        XSLFTextRun r = p.addNewTextRun();  
-        p.setTextAlign(TextAlign.CENTER);
-        r.setText(this.getText().toUpperCase());
+        XSLFTextRun r = p.addNewTextRun();
+        p.setTextAlign(TextAlign.CENTER); // Center text horizontally
+        r.setText(titleText);
         r.setBold(this.isBold());
         r.setFontFamily(this.getFontFamily());
         r.setFontColor(this.getColor());
         r.setFontSize(this.getFontSize());
 
-        XSLFTextShape subTitleShape = slide.getPlaceholder(1);
-        subTitleShape.clearText();  
+        // Center the title text box
+        int slideWidth = ppt.getPageSize().width;
+        int slideHeight = ppt.getPageSize().height;
+        int titleHeight = ppt.getPageSize().height / 2; // Adjust based on the font size
+        titleShape.setAnchor(
+                new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight)
+        );
     }
 }

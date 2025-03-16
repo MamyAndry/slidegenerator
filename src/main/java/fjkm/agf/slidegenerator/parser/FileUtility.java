@@ -74,7 +74,7 @@ public class FileUtility {
         String separator = File.separator;
         path = path + separator + fileName;
         File file = new File(path);
-        // System.out.println(file.getPath() + " created");
+        System.out.println(file.getPath() + " created");
     }
     
     public static void writeFile(String path, String body) throws Exception{
