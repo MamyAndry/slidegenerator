@@ -31,7 +31,7 @@ import java.awt.*;
 @Setter
 public class Slide {
     int slideWidth = 1920;
-    int slideheight = 1080;
+    int slideheight = 1440;
     String text;
     boolean bold = false;
     Color color = Color.BLACK;

@@ -46,3 +46,5 @@
         </form>
     </div>
 </body>
+<script src="js/jquery-editable-select.min.js"></script>
+<script src="js/jquery.min.js"></script>
