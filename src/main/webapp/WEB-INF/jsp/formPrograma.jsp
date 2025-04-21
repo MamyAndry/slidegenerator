@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/ppt.png" type="image/x-icon">
     <title>Form Programa Slide Generator</title>
 </head>
 <body>
@@ -100,7 +101,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Haben'ny Tarehan-tsoratra</label>
-                        <input class="form-control" type="number" name="fontSize" value="200">
+                        <input class="form-control" type="number" name="fontSize" value="250">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Tarehan-tsoratra ho an'ny fafan'ny hira</label>
@@ -108,7 +109,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Haben'ny Tarehan-tsoratra an'ny fafan'ny hira</label>
-                        <input class="form-control" type="number" name="fontSizeHira" value="200">
+                        <input class="form-control" type="number" name="fontSizeHira" value="250">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Tahan-pahatakonan'ny sary</label>
