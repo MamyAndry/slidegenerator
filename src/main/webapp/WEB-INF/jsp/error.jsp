@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,19 @@
     <link rel="icon" href="images/ppt.png" type="image/x-icon">
     <title>Error Page</title>
 </head>
+
 <body>
-    
-    <h1 style="color: red;">
-        ${message}
-    </h1>
+
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+            <div class="error-page">
+                <h2 class="headline text-danger">Erreur</h2>
+                <div class="error-content">
+                    <h3><i class="fas fa-exclamation-triangle text-danger"></i>${message}</h3>
+                </div>
+        </section>
+    </div>
 </body>
+
 </html>

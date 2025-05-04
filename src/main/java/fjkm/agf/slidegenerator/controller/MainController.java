@@ -28,39 +28,39 @@ import org.springframework.web.bind.annotation.RequestParam;
             return "index";
         }
 
-        @GetMapping("formPrograma")
+        @GetMapping("form-programme")
         public String formPrograma(Model model){
             HiraRehetra hiraRehetra = new HiraRehetra();
             try {
                 hiraRehetra.init();
                 model.addAttribute("list", hiraRehetra.getLisitraNomeraoHira());
-                return "formPrograma";
+                return "form-programme";
             } catch (Exception e) {
                 model.addAttribute("message", e.getMessage());
                 return "error";
             }
         }
 
-        @GetMapping("formHira")
+        @GetMapping("form-hira")
         public String formHira(Model model) {
             HiraRehetra hiraRehetra = new HiraRehetra();
             try {
                 hiraRehetra.init();
                 model.addAttribute("list", hiraRehetra.getLisitraNomeraoHira());
-                return "formHira";
+                return "form-hira";
             } catch (Exception e) {
                 model.addAttribute("message", e.getMessage());
                 return "error";
             }
         }
 
-        @GetMapping("formHiraRehetra")
+        @GetMapping("form-hira-rehetra")
         public String formHiraRehetra(Model model) {
             HiraRehetra hiraRehetra = new HiraRehetra();
             try {
                 hiraRehetra.init();
                 model.addAttribute("list", hiraRehetra.getLisitraNomeraoHira());
-                return "formHiraRehetra";
+                return "form-hira-rehetra";
             } catch (Exception e) {
                 model.addAttribute("message", e.getMessage());
                 return "error";
