@@ -47,7 +47,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Haben'ny tarehan-tsoratra</label>
-                                <input type="number" class="form-control" name="fontSize" value="250">
+                                <input type="number" class="form-control" name="fontSize" value="220">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Hira ho vokarina</label>

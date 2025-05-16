@@ -128,7 +128,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Haben'ny Tarehan-tsoratra an'ny fafan'ny hira</label>
-                                        <input class="form-control" type="number" name="fontSizeHira" value="250">
+                                        <input class="form-control" type="number" name="fontSizeHira" value="220">
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Tahan-pahatakonan'ny sary</label>

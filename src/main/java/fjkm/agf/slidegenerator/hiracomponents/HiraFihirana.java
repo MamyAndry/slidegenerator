@@ -83,6 +83,9 @@ public class HiraFihirana {
         return andininy.split("\n");
     }
 
+    public boolean isPunctuation(char ch) {
+        return ",.;:!?".indexOf(ch) != -1;
+    }
     public void constructHiraPresentation(String path) throws Exception{
         //CREATE NEW PRESENTATION
         XMLSlideShow ppt = Presentation.newPresentation();
@@ -96,6 +99,7 @@ public class HiraFihirana {
         slide.createSlide(ppt, "");
         int limit = lines.length -1;
         String line = "";
+        String lineTemp = "";
         int i = 0;
         while(i <= limit ) {
             if(i != limit){
@@ -103,8 +107,21 @@ public class HiraFihirana {
                     line = lines[i];
                     i++;
                 }else{
-                line = lines[i] + " " + lines[i+1]; 
-                    i += 2;
+                    line = lines[i] + " " + lines[i+1]; 
+                    if(line.length() > 38) {
+                        lineTemp = lines[i];
+                        // lineTemp = line.substring(0, 33);
+                        // char ch = line.charAt(33);
+                        // if (Character.isWhitespace(ch) || isPunctuation(ch)) {
+                        //     lines[i+1] = line.substring(33, line.length());
+                        // } else if (Character.isLetter(ch)) {
+                        //     lines[i+1] = line.substring(33, line.length());
+                        // }
+                        line = lineTemp;
+                        i++;
+                    }else{
+                        i += 2;
+                    }
                 }
             }else{
                 line = lines[i];
