@@ -31,7 +31,8 @@ import java.awt.*;
 @Setter
 public class Slide {
     int slideWidth = 1920;
-    int slideheight = 1440;
+    // int slideheight = 1440; // 4:3 aspect ratio
+    int slideheight = 1080; // 16:9 aspect ratio
     String text;
     boolean bold = false;
     Color color = Color.BLACK;

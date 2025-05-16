@@ -1,0 +1,8 @@
+jpackage ^
+  --type exe ^
+  --name SlideGenerator ^
+  --input target ^
+  --main-jar slidegenerator-0.0.1-SNAPSHOT.jar ^
+  --main-class org.springframework.boot.loader.JarLauncher ^
+  --java-options "--enable-preview" ^
+  --win-console
