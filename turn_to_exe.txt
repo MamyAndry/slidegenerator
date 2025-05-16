@@ -6,3 +6,4 @@ jpackage ^
   --main-class org.springframework.boot.loader.JarLauncher ^
   --java-options "--enable-preview" ^
   --win-console
+    
