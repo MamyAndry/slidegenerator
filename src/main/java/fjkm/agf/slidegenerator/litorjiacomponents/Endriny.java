@@ -94,7 +94,7 @@ public class Endriny {
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getRakitraPicture());
                 for (String elt : hiraRakitra) {  
-                    hiraFihirana = hiraRehetra.getLisitraHira().get(elt);
+                    hiraFihirana = hiraRehetra.getLisitraHira().get(elt.replace(" ", "_").toLowerCase());
                     hiraFihirana.setFontFamily(this.getFontFamilyHira());
                     hiraFihirana.setFontSize(this.getFontSizeHira());
                     hiraFihirana.constructHiraPresentation(path);
@@ -124,9 +124,9 @@ public class Endriny {
             }else if(temp.getTitle().equals("Asa Vavolombelona")){
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getAsaVavolombelonaPicture());
-                for( String asa : asaVavolombelona){
+                for( String asa : asaVavolombelona){ 
                     if(asa.equals("")) continue;
-                    hiraFihirana = hiraRehetra.getLisitraHira().get(hira[i]);
+                    hiraFihirana = hiraRehetra.getLisitraHira().get(hira[i].replace(" ", "_").toLowerCase());
                     hiraFihirana.setFontFamily(this.getFontFamilyHira());
                     hiraFihirana.setFontSize(this.getFontSizeHira());
                     hiraFihirana.constructHiraPresentation(path);
@@ -183,7 +183,7 @@ public class Endriny {
                 slide.createSlide(ppt, "");
                 for (String elt : hiraFizarana) {  
                     if(elt.equals("")) continue;             
-                    hiraFihirana = hiraRehetra.getLisitraHira().get(elt);
+                    hiraFihirana = hiraRehetra.getLisitraHira().get(elt.replace(" ", "_").toLowerCase());
                     hiraFihirana.setFontFamily(this.getFontFamilyHira());
                     hiraFihirana.setFontSize(this.getFontSizeHira());
                     hiraFihirana.constructHiraPresentation(path);   
@@ -195,7 +195,7 @@ public class Endriny {
                 slide.createSlide(ppt, "");
                 for (String elt : hiraFanangonana) {
                     if(elt.equals("")) continue;
-                    hiraFihirana = hiraRehetra.getLisitraHira().get(elt);
+                    hiraFihirana = hiraRehetra.getLisitraHira().get(elt.replace(" ", "_").toLowerCase());
                     hiraFihirana.setFontFamily(this.getFontFamilyHira());
                     hiraFihirana.setFontSize(this.getFontSizeHira());
                     hiraFihirana.constructHiraPresentation(path);            

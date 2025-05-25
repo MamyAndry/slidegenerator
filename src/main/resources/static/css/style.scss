@@ -36,3 +36,10 @@ input select{
 #hira-fandraisana{
     visibility: hidden;
 }
+
+.input-group .editable-select {
+    flex: 1;
+}
+.input-group .editable-select input {
+    width: 100%;
+}
