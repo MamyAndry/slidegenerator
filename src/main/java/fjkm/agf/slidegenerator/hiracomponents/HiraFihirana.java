@@ -30,37 +30,31 @@ public class HiraFihirana {
     public String constructHira(){
         String res = "";
         String fiverenana = this.getFiverenana();
+        int i = 0;
         for (Hira elt : this.getHira()) {
             if(elt.isFiverenany() && elt.getAndininy().equals("0"))
                 continue;
             if(this.getHira().length > 1){
-                res += elt.getAndininy() + " . " +  elt.getTononkira() + "\n";
+                if(i == 0){
+                    res += elt.getAndininy() + " . " +  elt.getTononkira() + "\n";
+                }else{
+                    res += "\n" + elt.getAndininy() + " . " +  elt.getTononkira() + "\n";
+                }
                 res += fiverenana;
             }else{
                 res += elt.getTononkira() + "\n";
                 res += fiverenana;
             }
-        }
-        return res;
-    }
-
-    public boolean containsDigit(String str){
-        boolean isContainingDigit = false;
-        int i = 2;
-        while(!isContainingDigit){
-            if(i == 10) break;
-            if(str.contains(""+i))
-                isContainingDigit = true; 
             i++;
         }
-        return isContainingDigit;
+        return res;
     }
 
     public String constructHira(String andininy){
         String res = "";
         String fiverenana = this.getFiverenana();
         andininy = andininy.trim();
-        String[] listAndininy = andininy.split(","); 
+        String[] listAndininy = andininy.split(",");
         for (Hira elt : this.getHira()) {
             for (String string : listAndininy) {
                 if(elt.isFiverenany() && elt.getAndininy().equals("0"))
@@ -77,6 +71,18 @@ public class HiraFihirana {
             }
         }
         return res;
+    }
+
+    public boolean containsDigit(String str){
+        boolean isContainingDigit = false;
+        int i = 2;
+        while(!isContainingDigit){
+            if(i == 10) break;
+            if(str.contains(""+i))
+                isContainingDigit = true; 
+            i++;
+        }
+        return isContainingDigit;
     }
 
     public String[] getByLineTononkira(String andininy){

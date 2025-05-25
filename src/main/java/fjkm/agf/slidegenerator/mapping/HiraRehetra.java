@@ -8,6 +8,7 @@ import java.util.Map;
 import fjkm.agf.slidegenerator.configuration.Antema;
 import fjkm.agf.slidegenerator.configuration.FihiranaFFPM;
 import fjkm.agf.slidegenerator.configuration.FihiranaFanampiny;
+import fjkm.agf.slidegenerator.configuration.FihiranaFifohazana;
 import fjkm.agf.slidegenerator.configuration.HiraSalamo;
 import fjkm.agf.slidegenerator.hiracomponents.HiraFihirana;
 import lombok.Getter;
@@ -21,10 +22,12 @@ public class HiraRehetra {
     public void initLisitraHira() throws Exception{
         FihiranaFFPM ffpm = new FihiranaFFPM();
         FihiranaFanampiny ff = new FihiranaFanampiny();
+        FihiranaFifohazana fsafif = new FihiranaFifohazana();
         Antema ant = new Antema();
         HiraSalamo sal = new HiraSalamo();
         ffpm.init();
         ff.init();
+        fsafif.init();
         ant.init();
         sal.init();
         HashMap<String, HiraFihirana> mapping = new HashMap<>();
@@ -32,7 +35,9 @@ public class HiraRehetra {
             mapping.put(set.getKey(), set.getValue());
         }
         for(Map.Entry<String, HiraFihirana> set : ff.getFihirana().entrySet()){
-	        // System.out.println(set.getValue());
+            mapping.put(set.getKey(), set.getValue());
+        }
+        for(Map.Entry<String, HiraFihirana> set : fsafif.getFihirana().entrySet()){
             mapping.put(set.getKey(), set.getValue());
         }
         for(Map.Entry<String, HiraFihirana> set : ant.getFihirana().entrySet()){

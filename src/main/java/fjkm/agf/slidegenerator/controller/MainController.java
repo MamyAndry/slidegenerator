@@ -71,6 +71,7 @@ import org.springframework.web.bind.annotation.RequestParam;
             HiraRehetra hiraRehetra = new HiraRehetra();
             try {
                 hiraRehetra.init();
+                hira = hira.replace(" ", "_").toLowerCase();
                 HiraFihirana hiraHovokarina = hiraRehetra.getLisitraHira().get(hira);
                 hiraHovokarina.setFontFamily(fontFamily);
                 hiraHovokarina.setFontSize(fontSize);

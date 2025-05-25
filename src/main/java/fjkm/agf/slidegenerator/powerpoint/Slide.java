@@ -128,7 +128,7 @@ public class Slide {
         int slideHeight = ppt.getPageSize().height;
         int titleHeight = ppt.getPageSize().height / 2; // Adjust based on the font size
         titleShape.setAnchor(
-                new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight)
+            new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight)
         );
     }
 

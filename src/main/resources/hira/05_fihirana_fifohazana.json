@@ -1,0 +1,129 @@
+{
+    "fihirana" : {
+        "Hira_fifohazana_070": {
+            "laharana": "070",
+            "sokajy": "Hira fifohazana",
+            "lohateny": "Ry fanahy masina ao ambony",
+            "mpanoratra": [],
+            "hira": [
+                {
+                "andininy": 1,
+                "tononkira": "Ry Fanahy Masina ao ambony\nIrak'i Jeso Tompo,\nIzahay aty dia mla vonjy\n Hafanao, Hatanjaho!",
+                "fiverenany": false
+                },
+                {
+                "andininy": 0,
+                "tononkira": "Ry fanahy Masina o! Midina,\nHanfana, hampahery\nIzany fona lazolazom-pahotana,\nO! vonjeo, sao very.",
+                "fiverenany": true
+                },
+                {
+                "andininy": 2,
+                "tononkira": "Ry Fanahy Masin-janahary,\nHazavao re ny sainay,\nHe! Ny fonay osa sy marary,\nMba sitrano handresenay",
+                "fiverenany": false
+                },
+                {
+                "andininy": 3,
+                "tononkira": "O! ry Afo-Masin'i Jesosy\n'Zay irin'ny firenena,\nLasanao koa anie 'ty Nisy,\nMba handray ny famonjena",
+                "fiverenany": false
+                }
+            ]
+        },
+        "Hira_fifohazana_205": {
+            "laharana": "205",
+            "sokajy": "Hira fifohazana",
+            "lohateny": "Ranon'aina, izay tena mateza",
+            "mpanoratra": [],
+            "hira": [
+                {
+                "andininy": 1,
+                "tononkira": "Ranon'aina, izay tena mateza\nAo an-tampon'i Kalvary\nSaro-dalana sady mideza\nNefa kosa tsy lavitra anao",
+                "fiverenany": false
+                },
+                {
+                "andininy": 0,
+                "tononkira": "\"Ranon'Aina tsara loatra\nMora azon'ny maniry azy re;\nTsy mba eto fa any an-koatra,\n'Zay tafiditra ao dia tretrika tokoa\"",
+                "fiverenany": true
+                },
+                {
+                "andininy": 2,
+                "tononkira": "Loharano tsy mety ho ritra,\nFa maharitra mandrakizay;\nManadio ny loto rehetra,\nNefa kosa tsy lavitra anao",
+                "fiverenany": false
+                },
+                {
+                "andininy": 3,
+                "tononkira": "Ny fitiavan'i Jesosy Tompo\nNo manolotra io rano io\nDia ho afaka izay mampisento\nHatak'andro,tapaho anio",
+                "fiverenany": false
+                },
+                {
+                "andininy": 4,
+                "tononkira": "Tonga Jesoa hamonjy ny maro;\n'Zay mibebaka o! Matokia;\nNy fanahy nirahin'ny tompo\nHanadio ny ota aon am-po",
+                "fiverenany": false
+                }
+            ]
+        },
+        "Hira_fifohazana_322": {
+            "laharana": "322",
+            "sokajy": "Hira fifohazana",
+            "lohateny": "Endrey 'ty fitiavan-dehibe",
+            "mpanoratra": [],
+            "hira": [
+                {
+                "andininy": 1,
+                "tononkira": "Endrey 'ty fitiavan-dehibe\nNasehonao Jeso ho ahy re!\nNy ranao latsaka, ho fanavotana\nEndrey 'ty fitiavan-dehibe.",
+                "fiverenany": false
+                },
+                {
+                "andininy": 2,
+                "tononkira": "Jeso 'lay tia tokoa no miantso anao\nMilaza hoe:\"Ny ota avelanao\"\nNy lalanao hazava, ny aizina hisava\nJeso 'lay tia tokoa no miantso anao.\nO! mba hevero izao\n'Lay Tompo tia\nMpamonjinao\nNy ainy natolony\nHamonjy olony",
+                "fiverenany": false
+                },
+                {
+                "andininy": 3,
+                "tononkira": "Jeso Raiso ny fiainako ho anao\nNy foko tsy madio mba sasao\nHo lapanao soa, mamiratra tokoa\nJeso raiso ny fiainako ho Anao\nO! mba hevero izao\n'Lay Tompo tia\nMpamonjinao\nNy ainy natolony\nHamonjy olony",
+                "fiverenany": false
+                }
+            ]
+        },
+        "Hira_fifohazana_324": {
+            "laharana": "324",
+            "sokajy": "Hira fifohazana",
+            "lohateny": "Tsy misy soa ho ahy afatsy Jeso",
+            "mpanoratra": [],
+            "hira": [
+                {
+                "andininy": 1,
+                "tononkira": "Tsy misy soa ho ahy afatsy Jeso\nNafoiko ny haren'ny tany\nManankarena aho nahita Azy\nFaly ao aminy re aho\nFaly aho miarak'aminy\nJesosy tokana ihany\nNa dia mahantra aza\nMbola manao hoe:\nFaly ao Aminy re aho",
+                "fiverenany": false
+                },
+                {
+                "andininy": 2,
+                "tononkira": "Fony tsy nisy avotra fisoloana\nSy ho fampanekena ny Ray\nDia nanolo-tana hanavotra ahy\nTamin'ny Rany Jesosy\nFaly aho miarak'Aminy\nJesosy tokana ihany\nNa dia mahatra aza\nMbola manao hoe:\nFaly ao Aminy re aho",
+                "fiverenany": false
+                },
+                {
+                "andininy": 3,
+                "tononkira": "Raha meloka ao amin'ny famoizam-po\nTsy misy fahazavana\nJesosy kosa nano ahy mpandova\nNy lapan'ny voninahitra\nFaly aho miarak'Aminy\nJesosy tokana ihany\nNa dia mahatra aza\nMbola manao hoe:\nFaly ao Aminy re aho",
+                "fiverenany": false
+                }
+            ]
+        },
+        "Hira_fifohazana_337": {
+            "laharana": "337",
+            "sokajy": "Hira fifohazana",
+            "lohateny": "Mamela heloka isan'andro",
+            "mpanoratra": [],
+            "hira": [
+                {
+                "andininy": 1,
+                "tononkira": "Mamela heloka isan'andro\nIanao Jesosy Zoky be fitia - Be Fitia ka\nKanefa, nefa he, indrisy\nFa lotoiko(2) amin'ny otako\n... Mh, mh, mh, mh, ...\nMiantsoantso aho hoe:\nRay malala o\n... Mh, mh, mh, mh, ...\nAtsangano aho e!\nFa efa trotraka.",
+                "fiverenany": false
+                },
+                {
+                "andininy": 2,
+                "tononkira": "Tsaroako dia tsaroko eto\nIanao Jesosy Zoky be fitia - Be Fitia ka\nKanefa, nefa he, indrisy\nFa lotoiko(2) amin'ny otako\nRotsirotsy ny Mpamonjy\nDiboky ny hafaliana izahay\nNovesaram-pahoriana\nNefa he, dia fiadanana\nNo natolotrao.",
+                "fiverenany": false
+                }
+            ]
+        }
+    }
+}

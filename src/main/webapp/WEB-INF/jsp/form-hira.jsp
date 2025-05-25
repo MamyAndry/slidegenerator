@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="css/adminlte.min.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-editable-select.min.css">
     <link rel="stylesheet" href="css/ionicons.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/ppt.png" type="image/x-icon">
@@ -51,7 +52,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Hira ho vokarina</label>
-                                <select name="hira" id="hira" class="form-control">
+                                <select name="hira" id="select-hira" class="form-control">
                                     <% for (String item : lst) { %>
                                         <option value="<%=item%>"><%=ObjectUtility.sexifyToUpperCase(item)%></option>
                                     <% } %>
@@ -67,7 +68,16 @@
         </section>
     </div>
 </body>
-<script src="js/jquery-editable-select.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery-editable-select.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/adminlte.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#select-hira').editableSelect();
+    });
+</script>
