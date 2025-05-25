@@ -58,6 +58,7 @@ public class Endriny {
         int i = 0;
         String key = "tapany_";
         HiraFihirana hiraFihirana;
+        hiraFidirana = hiraFidirana.toLowerCase().replace(" ", "_");
         hiraFihirana = hiraRehetra.getLisitraHira().get(hiraFidirana);
         if(hiraFihirana == null) return;
         hiraFihirana.setFontFamily(this.getFontFamilyHira());
@@ -81,6 +82,7 @@ public class Endriny {
                 slide.setText(vakitenySA);
                 slide.createSlide(ppt, this.getVakitenyPicture());
             } else if(temp.getTitle().contains("Hira")){
+                System.out.println(hira[i]);
                 hiraFihirana = hiraRehetra.getLisitraHira().get(hira[i]);
                 hiraFihirana.setFontFamily(this.getFontFamilyHira());
                 hiraFihirana.setFontSize(this.getFontSizeHira());
@@ -173,7 +175,7 @@ public class Endriny {
             key = keyPart + i;
             Tapany temp = this.getFizarana().get(key);
             if(key.equals("tapany_2")){
-                hiraRehetra.getLisitraHira().get(hiraFanehoana).constructHiraPresentation(path);     
+                hiraRehetra.getLisitraHira().get(hiraFanehoana.toLowerCase().replace(" ", "_")).constructHiraPresentation(path);     
                 slide.setText(ObjectUtility.sexifyToUpperCase(hiraFanehoana));
                 slide.createSlide(ppt, this.getHiraPicture());
             } else if(key.equals("tapany_7")){
@@ -208,9 +210,11 @@ public class Endriny {
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getVavakaPicture());
             } else if(key.equals("tapany_13")){
+                hiraFamaranana = hiraFamaranana.toLowerCase().replace(" ", "_");
                 hiraFihirana = hiraRehetra.getLisitraHira().get(hiraFamaranana);
+                System.out.println(hiraFihirana.getFiverenana());
                 hiraFihirana.setFontFamily(this.getFontFamilyHira());
-                hiraFihirana.setFontSize(this.getFontSizeHira());
+                hiraFihirana.setFontSize(this.getFontSizeHira());   
                 hiraFihirana.constructHiraPresentation(path);     
                 hiraRehetra.getLisitraHira().get(hiraFamaranana).constructHiraPresentation(path);
                 slide.setText(ObjectUtility.sexifyToUpperCase(hiraFamaranana));
