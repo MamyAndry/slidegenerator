@@ -18,45 +18,46 @@
         <link rel="icon" href="images/ppt.png" type="image/x-icon">
         <title>Form Programa Slide Generator</title>
     </head>
-    <body>
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <%@ include file="fragments/nav-bar.html" %>
-        </nav>
+    <body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <%@ include file="fragments/nav-bar.html" %>
+            </nav>
 
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <%@ include file="fragments/side-bar.html" %>
-        </aside>
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <%@ include file="fragments/side-bar.html" %>
+            </aside>
 
-
-        <div class="content-wrapper">
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h2>Famokarana ny hira rehetra</h2>
-                        </div>
-                        <div class="card-body">
-                            <form action="treatment-hira-rehetra" method="get">
-                                <div class="mb-3">
-                                    <label class="form-label">Toerana ametrahana ny hira ho vokarina</label>
-                                    <input type="text" class="form-control" name="path">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Tarehan-tsoratra ampiasaina</label>
-                                    <input type="text" class="form-control" name="fontFamily" value="Calibri">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Haben'ny tarehan-tsoratra</label>
-                                    <input type="number" class="form-control" name="fontSize" value="220">
-                                </div>
-                                <div class="mb-3">
-                                    <button id="validate_vakiteny" class="btn btn-primary" type="submit">Hamarino</button>
-                                </div>
-                            </form>
+            <div class="content-wrapper">
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h2>Famokarana ny hira rehetra</h2>
+                            </div>
+                            <div class="card-body">
+                                <form action="treatment-hira-rehetra" method="get">
+                                    <div class="mb-3">
+                                        <label class="form-label">Toerana ametrahana ny hira ho vokarina</label>
+                                        <input type="text" class="form-control" name="path">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Tarehan-tsoratra ampiasaina</label>
+                                        <input type="text" class="form-control" name="fontFamily" value="Calibri">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Haben'ny tarehan-tsoratra</label>
+                                        <input type="number" class="form-control" name="fontSize" value="220">
+                                    </div>
+                                    <div class="mb-3">
+                                        <button id="validate_vakiteny" class="btn btn-primary" type="submit">Hamarino</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     </body>
 </html>
