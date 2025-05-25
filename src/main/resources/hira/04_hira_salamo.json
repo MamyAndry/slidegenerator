@@ -1,6 +1,5 @@
 {
     "fihirana" : {
-
         "salamo_025": {
             "laharana": "025",
             "sokajy": "Salamo",
@@ -9,6 +8,28 @@
             "hira": [{
                 "andininy": 1,
                 "tononkira": "Aminao Jehovah o,\nno anandratako ny fanahiko\nAndriamanitra o!\nAndriamanitra o!\nHianao no itokiako,\naoka tsy ho menatra aho\nHianao no itokiako,\naoka tsy ho menatra aho\nAoka tsy hifalian'\nny fahavaloko aho.\nAminao Jehovah o,\nno anandratako ny fanahiko\nAndriamanitra o!\nAndriamanitra o!\nHianao no itokiako,\naoka tsy ho menatra aho\nHianao no itokiako,\naoka tsy ho menatra aho\nAoka tsy hifalian'\nny fahavaloko aho.\nEny, tsy hisy ho menatra\nizay rehetra miandry anao\nfa izay mivadika foana re,\nno ho menatra\nEny, tsy hisy ho menatra\nizay rehetra miandry anao\nfa izay mivadika foana re,\nno ho menatra\nAmpafantaro ny lalanao aho\nJehovah o\nAmpianaro ny sitrakao aho\nAmpafantaro ny lalanao aho\nJehovah o\nAmpianaro ny sitrakao aho\nAmpafantaro ny lalanao aho\nJehovah o\nAmpianaro ny sitrakao aho",
+                "fiverenany": false
+            }]
+        },
+        "salamo_034": {
+            "laharana": "034",
+            "sokajy": "Salamo",
+            "lohateny": "Hisaotra an'i Jehovah",
+            "mpanoratra": [],
+            "hira": [{
+                "andininy": 1,
+                "tononkira": "Hisaotra an'i Jehovah\n lalandava aho\nHo eo am-bavako mandrakariva ny fiderana azy\nHo eo am-bavako mandrakariva ny fiderana azy\nJehovah no\nreharehan'ny fanahiko\nHahare izany ny mpandefitra\nHahare izany ka ho faly\nka ho faly\nHisaotra an'i Jehovah\nlalandava aho\nHo eo am-bavako mandrakariva ny fiderana azy\nHo eo am-bavako mandrakariva ny fiderana azy\nJehovah no\nreharehan'ny fanahiko\nHahare izany ny mpandefitra\nHahare izany ka ho faly\nka ho faly\nMiara mankalaza an'i Jehovah amiko\nary aoka hiara-manandratra\nny Anarany isika\nMiaraha mankalaza\nmankalaza an'i Jehovah amiko\nary aoka hiara-manandratra\nNy Anarany\nny Anarany isika\nMiara mankalaza an'i Jehovah amiko\nary aoka hiara-manandratra\nny Anarany isika\nMiaraha mankalaza\nmankalaza an'i Jehovah amiko\nary aoka hiara-manandratra\nNy Anarany\nny Anarany isika",
+                "fiverenany": false
+            }]
+        },
+        "salamo_071": {
+            "laharana": "071",
+            "sokajy": "Salamo",
+            "lohateny": "Ianao Jehovah o no itokiako",
+            "mpanoratra": [],
+            "hira": [{
+                "andininy": 1,
+                "tononkira": "Ianao Jehovah o no itokiako\nAoka tsy ho menatra mandrakizay aho\nVonjeo ny fahamarinanao aho ka afaho\nAtongilano amiko ny sofinao\nKa vonjeo aho, Ka vonjeo aho\nKa vonjeo aho sy afaho\n Ka vonjeo aho, Ka vonjeo aho\nIanao Jehovah o no itokiako\nAoka ho vatolampy fonena\nhohatoniko mandrakariva Ianao\nIzay efa nandidy hamonjy ahy\nIzay efa nandidy hamonjy ahy\nFa harambatoko harambatoko\n Sy batery fiarovana Ianao\nAoka ho vatolampy fonena\nhohatoniko mandrakariva Ianao\nIzay efa nandidy hamonjy ahy\nIzay efa nandidy hamonjy ahy\nFa harambatoko harambatoko\nSy batery fiarovana Ianao\nIanao Jehovah o no itokiako\n Aoka tsy ho menatra mandrakizay aho\nVonjeo ny fahamarinanao aho ka afaho\nAtongilano amiko ny sofinao\nKa vonjeo aho, Ka vonjeo aho\nKa vonjeo aho sy afaho\nKa vonjeo aho, Ka vonjeo aho\nIanao Jehovah o no itokiako",
                 "fiverenany": false
             }]
         },

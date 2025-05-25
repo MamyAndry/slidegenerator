@@ -1,1 +1,42 @@
-body{font-size:large}.form-container{width:80%;margin:auto;margin-top:2%;padding:1%}.form-group{width:auto;padding:1%}.row{width:auto;padding:1%}input select{width:100%}.button-label{margin-right:70%}.btn{width:10%;min-width:-moz-fit-content;min-width:fit-content}.list-group-item{margin-top:1%}#hira-fandraisana{visibility:hidden}.main-sidebar{position: fixed;}
+body {
+  font-size: large;
+}
+
+.form-container {
+  width: 80%;
+  margin: auto;
+  margin-top: 2%;
+  padding: 1%;
+}
+
+.form-group {
+  width: auto;
+  padding: 1%;
+}
+
+.row {
+  width: auto;
+  padding: 1%;
+}
+
+input select {
+  width: 100%;
+}
+
+.button-label {
+  margin-right: 70%;
+}
+
+.btn {
+  width: 10%;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.list-group-item {
+  margin-top: 1%;
+}
+
+#hira-fandraisana {
+  visibility: hidden;
+}/*# sourceMappingURL=style.css.map */
