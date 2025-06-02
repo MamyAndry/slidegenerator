@@ -17,8 +17,6 @@ public class SlidePecularitiesMappingVersionTwo {
     String hiraFanehoana;
     String hiraFamaranana;
     String perikopa;
-    String[] hiraFizarana;
-    String[] hiraFanangonana;
     String asaVavolombelona;
     String asanAndriamanitra;
     boolean fandraisana;

@@ -108,8 +108,6 @@ public class LitorjiaFJKM extends LitorjiaConfiguration{
         String[] vakiteny,
         String[] asaVavolombelona,
         String[] asanAndriamanitra,
-        String[] hiraFizarana,
-        String[] hiraFanangonana,
         double fontSize,
         double fontSizeHira,
         double imageOpacity,
@@ -149,8 +147,6 @@ public class LitorjiaFJKM extends LitorjiaConfiguration{
                 hiraRehetra,
                 path,
                 hiraFanehoana,
-                hiraFizarana,
-                hiraFanangonana,
                 hiraFamaranana,
                 ppt
             );

@@ -47,4 +47,12 @@ input select {
 
 .input-group .editable-select input {
   width: 100%;
+}
+
+#select-hira {
+  text-align: left;
+}
+
+#select-hira option {
+  text-align: left;
 }/*# sourceMappingURL=style.css.map */

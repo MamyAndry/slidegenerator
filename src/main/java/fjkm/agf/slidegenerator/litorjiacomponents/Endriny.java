@@ -309,4 +309,60 @@ public class Endriny {
             }
         }
     }
+    public void generateSlideFandraisana(
+        HiraRehetra hiraRehetra,
+        String path,
+        String hiraFanehoana,
+        String hiraFamaranana,
+        XMLSlideShow ppt
+    ) throws Exception{
+        
+        //ADDING SLIDE
+        String keyPart = "tapany_";
+        String key = "";
+        Slide slide = new Slide();
+        slide.setFontFamily(this.getFontFamily());
+        slide.setFontSize(this.getFontSize());
+        slide.setImageOpacity(this.getImageOpacity());
+        slide.setText("Fandraisana Fanasan'ny Tompo");
+        slide.createSlide(ppt, this.getFanasanNyTompoPicture());
+        HiraFihirana hiraFihirana = null;
+        for(int i = 1; i <= this.getFizarana().size(); i++){
+            key = keyPart + i;
+            Tapany temp = this.getFizarana().get(key);
+            if(key.equals("tapany_2")){
+                hiraRehetra.getLisitraHira().get(hiraFanehoana.toLowerCase().replace(" ", "_")).constructHiraPresentation(path);     
+                slide.setText(ObjectUtility.sexifyToUpperCase(hiraFanehoana));
+                slide.createSlide(ppt, this.getHiraPicture());
+            } else if(key.equals("tapany_7")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, "");
+            } else if(key.equals("tapany_9")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, "");
+            }else if(temp.getTitle().equals("Tsodrano")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, this.getTsodranoPicture());
+            }else if(temp.getTitle().equals("Vavaka")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, this.getVavakaPicture());
+            } else if(key.equals("tapany_13")){
+                hiraFamaranana = hiraFamaranana.toLowerCase().replace(" ", "_");
+                hiraFihirana = hiraRehetra.getLisitraHira().get(hiraFamaranana);
+                System.out.println(hiraFihirana.getFiverenana());
+                hiraFihirana.setFontFamily(this.getFontFamilyHira());
+                hiraFihirana.setFontSize(this.getFontSizeHira());   
+                hiraFihirana.constructHiraPresentation(path);     
+                hiraRehetra.getLisitraHira().get(hiraFamaranana).constructHiraPresentation(path);
+                slide.setText(ObjectUtility.sexifyToUpperCase(hiraFamaranana));
+                slide.createSlide(ppt, this.getHiraPicture());
+            }else if(key.equals("tapany_11")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, this.getTsodranoPicture());
+            } else{
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, "");
+            }
+        }
+    }
 }

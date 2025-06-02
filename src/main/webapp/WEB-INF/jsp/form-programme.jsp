@@ -155,7 +155,8 @@
                                         <div class="mb-3">
                                             <label class="form-label">Tahan-pahatakonan'ny sary</label>
                                             <input class="form-control" type="number" name="imageOpacity" value="30.0">
-                                        </div>                                        <div class="container" id="hira-fandraisana">
+                                        </div>                                        
+                                        <div class="container" id="hira-fandraisana">
                                             <div class="row">
                                                 <div class="mb-3">
                                                     <label class="form-label">Hira Fanehoana</label>
@@ -166,46 +167,6 @@
                                                     </select>
                                                 </div>
                                             </div>  
-                                            <div class="row">
-                                                <div class="mb-3">
-                                                    <div class='row'>
-                                                        <label class="form-label button-label">Hira Fizarana Fandraisana</label>
-                                                        <div class="input-group">
-                                                            <select name="hira-fizarana-nosafidiana" id="hira-fizarana-nosafidiana" class="form-control">
-                                                                <% for (String item : lst) { %>
-                                                                    <option value="<%=item%>"><%=ObjectUtility.sexifyToUpperCase(item)%></option>
-                                                                <% } %>
-                                                            </select>
-                                                            <div class="input-group-append">
-                                                                <button id="add-hira-fizarana-button" type="button" class="btn btn-primary">Manampy</button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="container">
-                                                            <ul id="sortable-list-hira-fizarana"></ul>
-                                                        </div>  
-                                                    </div>
-                                                </div>
-                                            </div> 
-                                            <div class="row">
-                                                <div class="mb-3">
-                                                    <div class='row'>
-                                                        <label class="form-label button-label">Hira Fanangonana Fandraisana</label>
-                                                        <div class="input-group">
-                                                            <select name="hira-fanangonana-nosafidiana" id="hira-fanangonana-nosafidiana" class="form-control">
-                                                                <% for (String item : lst) { %>
-                                                                    <option value="<%=item%>"><%=ObjectUtility.sexifyToUpperCase(item)%></option>
-                                                                <% } %>
-                                                            </select>
-                                                            <div class="input-group-append">
-                                                                <button id="add-hira-fanangonana-button" type="button" class="btn btn-primary">Manampy</button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="container">
-                                                            <ul id="sortable-list-hira-fanangonana"></ul>
-                                                        </div>  
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="mb-3">
                                                     <label class="form-label">Hira Famaranana Fandraisana</label>
@@ -241,126 +202,16 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/adminlte.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
-<script src="js/programme.js"></script>
 <script>
-        
-    $('#add-hira-fizarana-button').on('click', function (e) {
-        e.preventDefault();
-        const value = $('#hira-fizarana-nosafidiana').val().trim();
-        if (value !== '') {
-            console.log(value);
-            hiraFizaranaVoasafidy.add(value);
-            const $li = $('<li>').addClass('d-flex justify-content-between align-items-center mb-1').css({
-                background: '#f4f6f9',
-                padding: '8px 12px',
-                borderRadius: '4px'
-            });
-
-            const $checkbox = $('<input>', {
-                type: 'checkbox',
-                name: 'hiraFizarana',
-                value: value,
-                class: 'btn-check',
-                id: 'hira-' + value, 
-                checked: true,
-                autocomplete: 'off'
-            });
-
-            const $text = $('<span>').text(value);
-
-            const $removeBtn = $('<span>')
-                .addClass('remove-btn')
-                .html('&times;')
-                .css({
-                    color: '#dc3545',
-                    cursor: 'pointer',
-                    fontWeight: 'bold'
-                });
-
-            $li.append($text, $removeBtn);
-            $('#sortable-list-hira-fizarana').append($li);
-
-            $('#hira-fizarana-nosafidiana').val('');
-        }
-    });
-
-    // Supprimer un élément
-    $('#sortable-list-hira-fizarana').on('click', '.delete-btn', function () {
-        const text = $(this).siblings('span').first().text();
-        hiraFizaranaVoasafidy = hiraFizaranaVoasafidy.filter(item => item !== text);
-        $(this).closest('li').remove();
-    });
-
-
-    $('#add-hira-fanangonana-button').on('click', function (e) {
-        e.preventDefault();
-        const value = $('#hira-fanangonana-nosafidiana').val().trim();
-        if (value !== '') {
-            console.log(value);
-            hiraFanangonanaVoasafidy.add(value);
-            const $li = $('<li>').addClass('d-flex justify-content-between align-items-center mb-1').css({
-                background: '#f4f6f9',
-                padding: '8px 12px',
-                borderRadius: '4px'
-            });
-            
-            const $checkbox = $('<input>', {
-                type: 'checkbox',
-                name: 'hiraFanangonana',
-                value: value,
-                class: 'btn-check',
-                id: 'hira-' + value, 
-                checked: true,
-                autocomplete: 'off'
-            });
-
-            const $text = $('<span>').text(value);
-
-            const $removeBtn = $('<span>')
-                .addClass('remove-btn')
-                .html('&times;')
-                .css({
-                    color: '#dc3545',
-                    cursor: 'pointer',
-                    fontWeight: 'bold'
-                });
-
-            $li.append($text, $removeBtn);
-            $('#sortable-list-hira-fanangonana').append($li);
-
-            $('#hira-fanangonana-nosafidiana').val('');
-        }
-    });
-
-    // Supprimer un élément
-    $('#sortable-list-hira-fanangonana').on('click', '.delete-btn', function () {
-        const text = $(this).siblings('span').first().text();
-        hiraFanangonanaVoasafidy = hiraFanangonanaVoasafidy.filter(item => item !== text);
-        $(this).closest('li').remove();
-    });
-
     $(document).ready(function () {
         $('#select-hira-fidirana').editableSelect();
         $('#select-hira-fanehoana').editableSelect();
         $('#select-hira-famaranana').editableSelect();
-        $('#hira-fizarana-nosafidiana').editableSelect();
-        $('#hira-fanangonana-nosafidiana').editableSelect();
-        
-        $('#sortable-list-hira-fizarana').sortable({
-            update: function () {
-                var hiraFizaranaVoasafidy = new Set();
-                $('#item-list li span:first-child').each(function () {
-                    hiraFizaranaVoasafidy.push($(this).text());
-                });
-            }
+
+        $('#fandraisana').on('click', function () {
+            const isVisible = $('#fandraisana_boolean').val() === "true";
+            $('#hira-fandraisana').css('visibility', isVisible ? 'visible' : 'hidden');
         });
-        $('#sortable-list-hira-fanangonana').sortable({
-            update: function () {
-                var hiraFanangonanaVoasafidy = new Set();
-                $('#item-list li span:first-child').each(function () {
-                    hiraFanangonanaVoasafidy.push($(this).text());
-                });
-            }
-        });
+
     });
 </script>

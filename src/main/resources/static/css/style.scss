@@ -1,45 +1,58 @@
-body{
+body {
     font-size: large;
 }
-.form-container{
+
+.form-container {
     width: 80%;
     margin: auto;
     margin-top: 2%;
     padding: 1%;
 }
-.form-group{
+
+.form-group {
     width: auto;
     padding: 1%;
 }
-.row{
+
+.row {
     width: auto;
     padding: 1%;
 }
-input select{
+
+input select {
     width: 100%;
 }
 
-.button-label{
+.button-label {
     margin-right: 70%;
 }
 
-.btn{
+.btn {
     width: 10%;
     min-width: fit-content;
     // font-size: large;
 }
 
-.list-group-item{
+.list-group-item {
     margin-top: 1%;
 }
 
-#hira-fandraisana{
+#hira-fandraisana {
     visibility: hidden;
 }
 
 .input-group .editable-select {
     flex: 1;
 }
+
 .input-group .editable-select input {
     width: 100%;
+}
+
+#select-hira {
+    text-align: left;
+}
+
+#select-hira option {
+    text-align: left;
 }

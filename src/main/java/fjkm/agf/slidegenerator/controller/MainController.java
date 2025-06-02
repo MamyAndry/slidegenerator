@@ -206,8 +206,6 @@ import org.springframework.web.bind.annotation.RequestParam;
                     vakiteny,
                     asaVavolombelona,
                     asanAndriamanitra,
-                    pecularitiesMapping.getHiraFizarana(),
-                    pecularitiesMapping.getHiraFanangonana(),
                     pecularitiesMapping.getFontSize(),
                     pecularitiesMapping.getFontSizeHira(),
                     pecularitiesMapping.getImageOpacity(),
