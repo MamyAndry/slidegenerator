@@ -26,6 +26,16 @@ public class ObjectUtility {
         return text.substring(0,1).toUpperCase().concat(text.substring(1));
     }
 
+    public static String FromArrayToString(String[] array, String separator){
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < array.length; i++){
+            sb.append(array[i]);
+            if(i < array.length - 1)
+                sb.append(separator);
+        }
+        return sb.toString();
+    }
+
     public static List<Integer> getUpperCaseIndex(String txt){
         ArrayList<Integer> res = new ArrayList<>();
         for(int i = 0; i < txt.length(); i++){

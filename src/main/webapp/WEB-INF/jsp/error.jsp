@@ -16,10 +16,17 @@
         <!-- Main content -->
         <section class="content">
             <div class="error-page">
-                <h2 class="headline text-danger">Erreur</h2>
-                <div class="error-content">
-                    <h3><i class="fas fa-exclamation-triangle text-danger"></i>${message}</h3>
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="headline text-danger">Erreur</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="error-content">
+                            <h3><i class="fas fa-exclamation-triangle text-danger"></i>${message}</h3>
+                        </div>
+                    </div>
                 </div>
+            </div>
         </section>
     </div>
 </body>

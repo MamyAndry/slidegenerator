@@ -151,6 +151,87 @@ public class Endriny {
         }
     }
 
+    public void generateSlide(
+        HiraRehetra hiraRehetra,
+        String path,
+        String vakitenyFiderana,
+        String vakitenySA,
+        String fanekemPinoana,
+        String hiraFidirana,
+        String[] vakiteny,
+        String[] asaVavolombelona,
+        String[] asanAndriamanitra,
+        XMLSlideShow ppt
+    ) throws Exception{
+
+        //ADDING SLIDE
+        int i = 0;
+        String key = "tapany_";
+        HiraFihirana hiraFihirana;
+        hiraFidirana = hiraFidirana.toLowerCase().replace(" ", "_");
+        hiraFihirana = hiraRehetra.getLisitraHira().get(hiraFidirana);
+        if(hiraFihirana == null) return;
+        hiraFihirana.setFontFamily(this.getFontFamilyHira());
+        hiraFihirana.setFontSize(this.getFontSizeHira());
+        hiraFihirana.constructHiraPresentation(path);
+        Slide slide = new Slide();
+        slide.setFontFamily(this.getFontFamily());
+        slide.setFontSize(this.getFontSize());
+        slide.setImageOpacity(this.getImageOpacity());
+        slide.setText(ObjectUtility.sexifyToUpperCase(hiraFidirana));
+        slide.createSlide(ppt, this.getHiraPicture());
+        for(int j = 1; j <= this.getFizarana().size(); j++){
+            Tapany temp = this.getFizarana().get(key + j);
+            if(temp.getTitle().equals("Fiderana an'Andriamanitra") && temp.isVakiteny()){
+                slide.setText(vakitenyFiderana);
+                slide.createSlide(ppt, this.getVakitenyPicture());
+            } else if(temp.getTitle().equals("Fotoana ho an'ny ankizy sy ny Tanora")){
+                slide.setText(temp.getTitle());
+                slide.createSlide(ppt, this.getFotoanaNyAnkizyPicture());
+            } else if(temp.getTitle().equals("Vakiteny Sekoly Alahady") && temp.isVakiteny()){
+                slide.setText(vakitenySA);
+                slide.createSlide(ppt, this.getVakitenyPicture());
+            } else if(temp.getTitle().equals("Rakitra")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, this.getRakitraPicture());
+            } else if(temp.getTitle().equals("Fanekem-pinoana")){
+                slide.setText((temp.getTitle() + " " + fanekemPinoana).toUpperCase());
+                slide.createSlide(ppt, "");
+            } else if(temp.getTitle().equals("Vakiteny") && temp.isVakiteny()){
+                slide.setText(turnArrayToUniqueString(vakiteny));
+                slide.createSlideVakiteny(ppt, this.getVakitenyPicture());
+            } else if(temp.getTitle().contains("Vavaka")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, this.getVavakaPicture());
+            }else if(temp.getTitle().equals("Tsodrano")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, this.getTsodranoPicture());
+            }else if(temp.getTitle().equals("Toriteny")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, this.getToritenyPicture());
+            }else if(temp.getTitle().equals("Feon-javamaneno")){
+                double realOpacity = this.getImageOpacity();
+                slide.setImageOpacity(100.0);
+                slide.createSlide(ppt, this.getFeoPicture());
+                slide.setImageOpacity(realOpacity);
+            }else if(temp.getTitle().equals("Asa Vavolombelona")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, this.getAsaVavolombelonaPicture());
+            }else if(temp.getTitle().equals("Asan'\nAndriamanitra")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, this.getAsanAndriamanitraPicture());
+                for( String elt : asanAndriamanitra){
+                    if(elt.equals("")) continue;
+                    slide.setText(elt);
+                    slide.createSlide(ppt, "");
+                } 
+            } else{
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, "");
+            }
+        }
+    }
+
     public void generateSlideFandraisana(
         HiraRehetra hiraRehetra,
         String path,
