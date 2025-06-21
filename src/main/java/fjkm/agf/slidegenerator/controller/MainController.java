@@ -26,8 +26,18 @@ import org.springframework.web.bind.annotation.RequestParam;
         public String index(Model model){
             model.addAttribute("message", "TONGASOA");
             // String[] list = {};
-            // model.addAttribute("list", list);
             return "index";
+        }
+
+        @GetMapping("error")
+        public String error(Model model){
+            try {
+                model.addAttribute("message", "Errora");
+                return "error";
+            } catch (Exception e) {
+                model.addAttribute("message", e.getMessage());
+                return "error";
+            }
         }
 
         @GetMapping("form-programme")

@@ -212,11 +212,17 @@ public class Endriny {
             }else if(temp.getTitle().equals("Feon-javamaneno")){
                 double realOpacity = this.getImageOpacity();
                 slide.setImageOpacity(100.0);
+                slide.setText("");
                 slide.createSlide(ppt, this.getFeoPicture());
                 slide.setImageOpacity(realOpacity);
             }else if(temp.getTitle().equals("Asa Vavolombelona")){
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getAsaVavolombelonaPicture());
+                for( String elt : asaVavolombelona){
+                    if(elt.equals("")) continue;
+                    slide.setText(elt);
+                    slide.createSlide(ppt, "");
+                } 
             }else if(temp.getTitle().equals("Asan'\nAndriamanitra")){
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getAsanAndriamanitraPicture());
@@ -225,6 +231,9 @@ public class Endriny {
                     slide.setText(elt);
                     slide.createSlide(ppt, "");
                 } 
+            } else if(temp.getTitle().contains("Hira")){
+                slide.setText(temp.getTitle().toUpperCase());
+                slide.createSlide(ppt, this.getHiraPicture());
             } else{
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, "");
