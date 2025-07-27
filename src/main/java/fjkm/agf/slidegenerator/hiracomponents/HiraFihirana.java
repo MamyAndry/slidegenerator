@@ -1,6 +1,5 @@
 package fjkm.agf.slidegenerator.hiracomponents;
 
-import org.apache.commons.math3.geometry.euclidean.threed.Line;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
 
 import fjkm.agf.slidegenerator.powerpoint.Presentation;

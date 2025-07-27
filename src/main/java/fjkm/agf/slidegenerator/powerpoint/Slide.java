@@ -127,9 +127,29 @@ public class Slide {
         int slideWidth = ppt.getPageSize().width;
         int slideHeight = ppt.getPageSize().height;
         int titleHeight = ppt.getPageSize().height / 2; // Adjust based on the font size
+
+        // Create a new text box for the list
+        XSLFTextShape listShape = slide.createTextBox();
+        XSLFTextParagraph listParagraph = listShape.addNewTextParagraph();
+        listParagraph.setTextAlign(TextAlign.LEFT);
+        listParagraph.setBullet(true);
+        XSLFTextRun listRun = listParagraph.addNewTextRun();
+        listRun.setText(this.getText());
+        listRun.setFontFamily(this.getFontFamily());
+        listRun.setFontColor(this.getColor());
+        listRun.setFontSize(this.getFontSize() - 20);
+        listRun.setBold(this.isBold());
+
+        // Position the list text box below the title
+        int listHeight = slideHeight / 2;
+        // Position the title text box at the top of the slide
         titleShape.setAnchor(
-            new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight)
+            new Rectangle(0, 0, slideWidth, titleHeight)
         );
+        listShape.setAnchor(
+            new Rectangle(0, (slideHeight + titleHeight) / 4, slideWidth, listHeight)
+        );
+
     }
 
     public void createSlide(XMLSlideShow ppt, String picture) throws Exception {

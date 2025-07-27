@@ -165,7 +165,6 @@ public class Endriny {
     ) throws Exception{
 
         //ADDING SLIDE
-        int i = 0;
         String key = "tapany_";
         HiraFihirana hiraFihirana;
         hiraFidirana = hiraFidirana.toLowerCase().replace(" ", "_");
