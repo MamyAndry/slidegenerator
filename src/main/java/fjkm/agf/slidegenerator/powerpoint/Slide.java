@@ -39,6 +39,7 @@ public class Slide {
     double fontSize = 88.0;
     String fontFamily = "Cambria";
     double imageOpacity = 30.0;
+    boolean isSetHigher = false;
 
     public int calculOpacity(double percentage) {
         return (int) (255 * percentage) / 100;
@@ -51,7 +52,7 @@ public class Slide {
         int opacity = calculOpacity(percentage); // 0 (transparent) to 255 (opaque)
 
         BufferedImage modifiedImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(),
-                BufferedImage.TYPE_INT_ARGB);
+            BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = modifiedImage.createGraphics();
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) opacity / 255f));
         g.drawImage(originalImage, 0, 0, null);
@@ -60,7 +61,8 @@ public class Slide {
     }
 
     public void createSlideHira(XMLSlideShow ppt) throws Exception {
-
+        if(this.getText().equals(""))
+            return;
         ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to 1080
 
         // Adding a slide (no layout)
@@ -84,8 +86,9 @@ public class Slide {
         int slideWidth = ppt.getPageSize().width;
         int slideHeight = ppt.getPageSize().height;
         int titleHeight = ppt.getPageSize().height / 2; // Adjust based on the font size
+
         titleShape.setAnchor(
-                new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight)
+            new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight)
         );
     }
 

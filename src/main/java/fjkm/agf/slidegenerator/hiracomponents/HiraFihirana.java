@@ -112,16 +112,9 @@ public class HiraFihirana {
                     line = lines[i];
                     i++;
                 }else{
-                    line = lines[i] + " " + lines[i+1]; 
-                    if(line.length() > 38) {
+                    line = lines[i] + "\n" + lines[i+1]; 
+                    if(line.length() >= 36) { // if line is too long, split it in two
                         lineTemp = lines[i];
-                        // lineTemp = line.substring(0, 33);
-                        // char ch = line.charAt(33);
-                        // if (Character.isWhitespace(ch) || isPunctuation(ch)) {
-                        //     lines[i+1] = line.substring(33, line.length());
-                        // } else if (Character.isLetter(ch)) {
-                        //     lines[i+1] = line.substring(33, line.length());
-                        // }
                         line = lineTemp;
                         i++;
                     }else{
@@ -158,7 +151,7 @@ public class HiraFihirana {
         slide.createSlideHira(ppt);
         for (int i = 0; i <= limit ; i += 2) {
             if(i != limit){
-                line = lines[i] + " " + lines[i+1];
+                line = lines[i] + "\n" + lines[i+1];
             }else{
                 line = lines[i];
             }
