@@ -78,6 +78,8 @@
                                                 <option value="endriny_2">faharoa</option>
                                                 <option value="endriny_3">fahatelo</option>
                                                 <option value="endriny_4">fahaefatra</option>
+                                                <option value="fanambadiana">fanambadiana</option>
+                                                <option value="fahafatesana">fahafatesana</option>
                                             </select>
                                         </div>
                                         <div class="mb-3">
