@@ -1,14 +1,12 @@
 package fjkm.agf.slidegenerator.configuration;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import fjkm.agf.slidegenerator.parser.JsonUtility;
 import fjkm.agf.slidegenerator.utils.Misc;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author rakharrs

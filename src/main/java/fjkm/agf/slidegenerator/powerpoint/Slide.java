@@ -1,18 +1,19 @@
 package fjkm.agf.slidegenerator.powerpoint;
 
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
-import java.awt.geom.Rectangle2D;
-
-import org.apache.poi.sl.usermodel.TextParagraph.TextAlign;
-
 import org.apache.poi.sl.usermodel.PictureData;
+import org.apache.poi.sl.usermodel.TextParagraph.TextAlign;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
 import org.apache.poi.xslf.usermodel.XSLFPictureData;
 import org.apache.poi.xslf.usermodel.XSLFPictureShape;
@@ -21,11 +22,8 @@ import org.apache.poi.xslf.usermodel.XSLFTextParagraph;
 import org.apache.poi.xslf.usermodel.XSLFTextRun;
 import org.apache.poi.xslf.usermodel.XSLFTextShape;
 
-import fjkm.agf.slidegenerator.utils.Misc;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.awt.*;
 
 @Getter
 @Setter
