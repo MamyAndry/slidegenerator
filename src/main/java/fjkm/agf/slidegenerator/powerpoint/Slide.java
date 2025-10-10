@@ -1,14 +1,14 @@
 package fjkm.agf.slidegenerator.powerpoint;
 
-import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.awt.AlphaComposite;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import javax.imageio.ImageIO;
 
 import java.awt.geom.Rectangle2D;
-import java.awt.Graphics2D;
 
 import org.apache.poi.sl.usermodel.TextParagraph.TextAlign;
 
@@ -46,13 +46,16 @@ public class Slide {
     }
 
     public BufferedImage changeOpacityOfImage(String fileName, double percentage) throws Exception {
-        BufferedImage originalImage = ImageIO.read(new File(Misc.getImagesLocation() + File.separator + fileName));
-
+        InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("images/" + fileName);
+        if (is == null) {
+            throw new FileNotFoundException("Image not found: " + fileName);
+        }
+        BufferedImage originalImage = ImageIO.read(is);
         // Adjust opacity (example: 0.5 opacity)
         int opacity = calculOpacity(percentage); // 0 (transparent) to 255 (opaque)
 
         BufferedImage modifiedImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(),
-            BufferedImage.TYPE_INT_ARGB);
+                BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = modifiedImage.createGraphics();
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) opacity / 255f));
         g.drawImage(originalImage, 0, 0, null);
@@ -61,9 +64,10 @@ public class Slide {
     }
 
     public void createSlideHira(XMLSlideShow ppt) throws Exception {
-        if(this.getText().equals(""))
+        if (this.getText().equals(""))
             return;
-        ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to 1080
+        ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to
+                                                                                    // 1080
 
         // Adding a slide (no layout)
         XSLFSlide slide = ppt.createSlide();
@@ -88,12 +92,12 @@ public class Slide {
         int titleHeight = ppt.getPageSize().height / 2; // Adjust based on the font size
 
         titleShape.setAnchor(
-            new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight)
-        );
+                new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight));
     }
 
     public void createSlideVakiteny(XMLSlideShow ppt, String picture) throws Exception {
-        ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to 1080
+        ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to
+                                                                                    // 1080
 
         // Adding a slide (no layout)
         XSLFSlide slide = ppt.createSlide();
@@ -147,16 +151,15 @@ public class Slide {
         int listHeight = slideHeight / 2;
         // Position the title text box at the top of the slide
         titleShape.setAnchor(
-            new Rectangle(0, 0, slideWidth, titleHeight)
-        );
+                new Rectangle(0, 0, slideWidth, titleHeight));
         listShape.setAnchor(
-            new Rectangle(0, (slideHeight + titleHeight) / 4, slideWidth, listHeight)
-        );
+                new Rectangle(0, (slideHeight + titleHeight) / 4, slideWidth, listHeight));
 
     }
 
     public void createSlide(XMLSlideShow ppt, String picture) throws Exception {
-        ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to 1080
+        ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to
+                                                                                    // 1080
 
         // Adding a slide (no layout)
         XSLFSlide slide = ppt.createSlide();
@@ -194,7 +197,6 @@ public class Slide {
         int slideHeight = ppt.getPageSize().height;
         int titleHeight = ppt.getPageSize().height / 2; // Adjust based on the font size
         titleShape.setAnchor(
-                new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight)
-        );
+                new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight));
     }
 }

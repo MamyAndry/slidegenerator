@@ -1,6 +1,7 @@
 package fjkm.agf.slidegenerator.utils;
 
 import java.io.File;
+import java.io.InputStream;
 
 public class Misc {
     public static String currentLocation(String name) {
@@ -8,46 +9,20 @@ public class Misc {
         return classLoader.getResource(name).getPath();
     }
 
-    public static String tabulate(String string){
-        string = "\t" + string;
-        return string.replace("\n", "\n\t");
+    public static InputStream getResourceStream(String name) {
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        return classLoader.getResourceAsStream(name);
     }
 
-    public static String getTemplateLocation(){
-        return currentLocation("template");
+    public static InputStream getHiraStream(String jsonName) {
+        return getResourceStream("hira" + File.separator + jsonName);
     }
 
-    public static String getSourceTemplateLocation(){
-        return getTemplateLocation() + File.separator + "sourceCode";
+    public static InputStream getLitorjiaStream(String jsonName) {
+        return getResourceStream("litorjia" + File.separator + jsonName);
     }
 
-    public static String getViewTemplateLocation(){
-        return getTemplateLocation() + File.separator + "view";
-    }
-
-    public static String getConfigLocation(){
-        return currentLocation("conf");
-    }
-
-    public static String getConnectionConfLocation(){
-        String separator = File.separator;
-        return getConfigLocation() + separator + "connection";
-    }
-
-    public static String getGeneratorConfLocation(){
-        String separator = File.separator;
-        return getConfigLocation() + separator + "generator";
-    }
-
-    public static String getHiraLocation(){
-        return currentLocation("hira");
-    }
-
-    public static String getLitorjiaLocation(){
-        return currentLocation("litorjia");
-    }
-
-    public static String getImagesLocation(){
-        return currentLocation("images");
+    public static InputStream getImagesStream(String imageName) {
+        return getResourceStream("images" + File.separator + imageName);
     }
 }

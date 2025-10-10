@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 import fjkm.agf.slidegenerator.parser.JsonUtility;
 import fjkm.agf.slidegenerator.utils.Misc;
@@ -23,10 +25,14 @@ public abstract class LitorjiaConfiguration {
      */
     @SuppressWarnings("unchecked")
     public <T> T read() throws Exception{
-        String separator = File.separator;
-        String path = Misc.getLitorjiaLocation() + separator + jsonPath;
-        Object temp = JsonUtility.parseJson(path, this.getClass());
-        return (T)temp;
+       try (InputStream is = Misc.getLitorjiaStream(jsonPath)) {
+        if (is == null) {
+            throw new FileNotFoundException("Resource not found: " + jsonPath);
+        }
+        Object temp = JsonUtility.parseJson(is, this.getClass());
+        return (T) temp;
+    }
+
     }
 
     /**
