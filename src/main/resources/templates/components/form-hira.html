@@ -1,0 +1,64 @@
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-music mr-2"></i>
+            Famokarana Hira
+        </h3>
+    </div>
+    <div class="card-body">
+        <form action="treatment-hira" method="get">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-folder mr-1"></i>
+                            Toerana ametrahana ny hira ho vokarina
+                        </label>
+                        <input type="text" class="form-control" name="path" placeholder="Ohatra: D:\Hira\">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-font mr-1"></i>
+                            Tarehan-tsoratra ampiasaina
+                        </label>
+                        <input type="text" class="form-control" name="fontFamily" value="Calibri">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-text-height mr-1"></i>
+                            Haben'ny tarehan-tsoratra
+                        </label>
+                        <input type="number" class="form-control" name="fontSize" value="220" min="10" max="300">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-list mr-1"></i>
+                            Hira ho vokarina
+                        </label>
+                        <select name="hira" id="select-hira" class="form-control editable-select">
+                            <option th:each="item : ${list}" th:value="${item}" th:text="${T(fjkm.agf.slidegenerator.utils.ObjectUtility).sexifyToUpperCase(item)}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3">
+                        <button id="validate_vakiteny" class="btn btn-primary btn-lg" type="submit">
+                            <i class="fas fa-check mr-2"></i>
+                            Hamarino
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

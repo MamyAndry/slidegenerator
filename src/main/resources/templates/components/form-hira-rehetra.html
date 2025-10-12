@@ -1,0 +1,66 @@
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-book mr-2"></i>
+            Famokarana ny hira rehetra
+        </h3>
+    </div>
+    <div class="card-body">
+        <div class="callout callout-warning">
+            <h5><i class="fas fa-exclamation-triangle mr-1"></i> Fanamarihana:</h5>
+            <p>Io karazana io dia hamokatra ny hira rehetra amin'ny boky hira. Mety haharitra ela ny fiasana.</p>
+        </div>
+        <form action="treatment-hira-rehetra" method="get">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-folder mr-1"></i>
+                            Toerana ametrahana ny hira ho vokarina
+                        </label>
+                        <input type="text" class="form-control" name="path" placeholder="Ohatra: D:\Hira\" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-font mr-1"></i>
+                            Tarehan-tsoratra ampiasaina
+                        </label>
+                        <input type="text" class="form-control" name="fontFamily" value="Calibri">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-text-height mr-1"></i>
+                            Haben'ny tarehan-tsoratra
+                        </label>
+                        <input type="number" class="form-control" name="fontSize" value="220" min="10" max="300">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Isa ny hira rehetra
+                        </label>
+                        <input type="text" class="form-control" th:value="${#lists.size(list)} + ' hira'" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3">
+                        <button id="validate_vakiteny" class="btn btn-primary btn-lg" type="submit">
+                            <i class="fas fa-download mr-2"></i>
+                            Hamarino sy hamokatra ny hira rehetra
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

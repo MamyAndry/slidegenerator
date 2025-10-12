@@ -11,6 +11,6 @@ public class CustomErrorController implements ErrorController {
     @RequestMapping("/error")
     public String handleError(Model model) {
         model.addAttribute("message", "Something went wrong");
-        return "error"; // JSP view: /WEB-INF/jsp/error.jsp
+        return "error"; // Thymeleaf view: templates/error.html
     }
 }
