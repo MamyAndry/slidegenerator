@@ -1,6 +1,5 @@
 package fjkm.agf.slidegenerator.utils;
 
-import java.io.File;
 import java.io.InputStream;
 
 public class Misc {
@@ -15,14 +14,14 @@ public class Misc {
     }
 
     public static InputStream getHiraStream(String jsonName) {
-        return getResourceStream("hira" + File.separator + jsonName);
+        return getResourceStream("hira/" + jsonName);
     }
 
     public static InputStream getLitorjiaStream(String jsonName) {
-        return getResourceStream("litorjia" + File.separator + jsonName);
+        return getResourceStream("litorjia/" + jsonName);
     }
 
     public static InputStream getImagesStream(String imageName) {
-        return getResourceStream("images" + File.separator + imageName);
+        return getResourceStream("images/" + imageName);
     }
 }

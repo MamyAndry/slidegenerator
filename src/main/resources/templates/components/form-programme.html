@@ -1,0 +1,219 @@
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            Famokarana Programa
+        </h3>
+    </div>
+    <div class="card-body">
+        <form action="treatment-programa" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-primary">
+                        <i class="fas fa-cogs mr-1"></i>
+                        Fikirakirana ankapobeny
+                    </h5>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-folder mr-1"></i>
+                            Toerena asiana an'ilay Programa
+                        </label>
+                        <input class="form-control" type="text" name="path" value="./powerpoint"
+                            placeholder="Ohatra: D:\Programa\">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-file-powerpoint mr-1"></i>
+                            Anaran'ny Slide
+                        </label>
+                        <input class="form-control" type="text" name="name" placeholder="Ohatra: Programa_2024">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-list mr-1"></i>
+                            Endrin'ny Litorjia
+                        </label>
+                        <select class="form-control" name="endriny">
+                            <option value="endriny_1">Voalohany</option>
+                            <option value="endriny_2">Faharoa</option>
+                            <option value="endriny_3">Fahatelo</option>
+                            <option value="endriny_4">Fahaefatra</option>
+                            <option value="fanambadiana">Fanambadiana</option>
+                            <option value="fahafatesana">Fahafatesana</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-book-open mr-1"></i>
+                            Vakiteny Fiderana
+                        </label>
+                        <input class="form-control" type="text" name="vakitenyFiderana" placeholder="Ohatra: Salamo 23">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-graduation-cap mr-1"></i>
+                            Vakiteny Sekoly Alahady
+                        </label>
+                        <input class="form-control" type="text" name="vakitenySA" placeholder="Ohatra: Matio 5:1-12">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-cross mr-1"></i>
+                            Fanekem-pinoana
+                        </label>
+                        <select class="form-control" name="fanekemPinoana">
+                            <option value="voalohany">Voalohany</option>
+                            <option value="faharoa">Faharoa</option>
+                            <option value="fahatelo">Fahatelo</option>
+                            <option value="fahaefatra">Fahaefatra</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-music mr-1"></i>
+                            Hira Fidirana
+                        </label>
+                        <select name="hiraFidirana" id="select-hira-fidirana" class="form-control editable-select">
+                            <option th:each="item : ${list}" th:value="${item}"
+                                th:text="${T(fjkm.agf.slidegenerator.utils.ObjectUtility).sexifyToUpperCase(item)}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-scroll mr-1"></i>
+                            Perikopa
+                        </label>
+                        <textarea class="form-control" name="perikopa" rows="3"
+                            placeholder="Lazao eto ny perikopa..."></textarea>
+                    </div>
+                    <div class="mb-3" id="vavolombelona">
+                        <label class="form-label">
+                            <i class="fas fa-users mr-1"></i>
+                            Asa vavolombelona
+                        </label>
+                        <textarea class='form-control' name='asaVavolombelona' rows='3'
+                            placeholder="Lazao eto ny asa vavolombelona..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-hands-praying mr-1"></i>
+                            Asan'Andriamanitra
+                        </label>
+                        <textarea class='form-control' name='asanAndriamanitra' rows='3'
+                            placeholder="Lazao eto ny asan'Andriamanitra..."></textarea>
+                    </div>
+                    <div class="mb-3" id="fandraisana">
+                        <label class="form-label">
+                            <i class="fas fa-hand-holding mr-1"></i>
+                            Fandraisana
+                        </label>
+                        <div class="mt-2">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="fandraisana"
+                                    id="fandraisana_boolean_true" value="true">
+                                <label class="form-check-label" for="fandraisana_boolean_true">
+                                    Eny - Misy fandraisana
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="fandraisana"
+                                    id="fandraisana_boolean_false" value="false" checked>
+                                <label class="form-check-label" for="fandraisana_boolean_false">
+                                    Tsia - Tsy misy fandraisana
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-success">
+                        <i class="fas fa-palette mr-1"></i>
+                        Fikirakirana ny endrika
+                    </h5>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-font mr-1"></i>
+                            Tarehan-tsoratra ny fafana
+                        </label>
+                        <input class="form-control" type="text" name="fontFamily" value="Calibri">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-text-height mr-1"></i>
+                            Haben'ny Tarehan-tsoratra
+                        </label>
+                        <input class="form-control" type="number" name="fontSize" value="250" min="10" max="400">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-font mr-1"></i>
+                            Tarehan-tsoratra ho an'ny fafan'ny hira
+                        </label>
+                        <input class="form-control" type="text" name="fontFamilyHira" value="Calibri">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-text-height mr-1"></i>
+                            Haben'ny Tarehan-tsoratra an'ny fafan'ny hira
+                        </label>
+                        <input class="form-control" type="number" name="fontSizeHira" value="220" min="10" max="400">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">
+                            <i class="fas fa-adjust mr-1"></i>
+                            Tahan-pahatakonan'ny sary (%)
+                        </label>
+                        <input class="form-control" type="number" name="imageOpacity" value="30.0" min="0" max="100"
+                            step="0.1">
+                    </div>
+                    <!-- Fandraisana specific fields -->
+                    <div class="row" id="hira-fandraisana-section" style="display: none;">
+                        <div class="col-md-12">
+                            <h5 class="text-success">
+                                <i class="fas fa-music mr-1"></i>
+                                Hira fandraisana
+                            </h5>
+
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-play mr-1"></i>
+                                    Hira Fanehoana
+                                </label>
+                                <select name="hiraFanehoana" id="select-hira-fanehoana-fandraisana"
+                                    class="form-control editable-select" required>
+                                    <option th:each="item : ${list}" th:value="${item}"
+                                        th:text="${T(fjkm.agf.slidegenerator.utils.ObjectUtility).sexifyToUpperCase(item)}">
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-stop mr-1"></i>
+                                    Hira Famaranana Fandraisana
+                                </label>
+                                <select name="hiraFamaranana" id="select-hira-famaranana-fandraisana"
+                                    class="form-control editable-select" required>
+                                    <option th:each="item : ${list}" th:value="${item}"
+                                        th:text="${T(fjkm.agf.slidegenerator.utils.ObjectUtility).sexifyToUpperCase(item)}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <hr>
+                        <div class="mb-3">
+                            <button class="btn btn-primary btn-lg" type="button" onclick="handleProgramSubmit()">
+                                <i class="fas fa-check mr-2"></i>
+                                Hamarino
+                            </button>
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>

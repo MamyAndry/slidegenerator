@@ -1,0 +1,55 @@
+<div th:fragment="sidebar">
+    <!-- Brand Logo -->
+    <a href="#" onclick="loadComponent('home', 'Home')" class="brand-link">
+        <img src="images/ppt.png" alt="SLIDEGENERATOR LOGO" class="brand-image" style="opacity: .8">
+        <span class="brand-text font-weight-light">SLIDEGENERATOR</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a href="#" onclick="loadComponent('home', 'Home'); pushState('home', 'Home');" class="nav-link active" data-component="home">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
+                
+                <!-- Hira Section -->
+                <li class="nav-header">HIRA</li>
+                <li class="nav-item">
+                    <a href="#" onclick="loadComponent('form-hira', 'Mamokatra hira iray'); pushState('form-hira', 'Mamokatra hira iray');" class="nav-link" data-component="form-hira">
+                        <i class="nav-icon fas fa-music"></i>
+                        <p>Mamokatra hira iray</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" onclick="loadComponent('form-hira-maro', 'Mamokatra hira maro'); pushState('form-hira-maro', 'Mamokatra hira maro');" class="nav-link" data-component="form-hira-maro">
+                        <i class="nav-icon fas fa-list-ul"></i>
+                        <p>Mamokatra hira maro</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" onclick="loadComponent('form-hira-rehetra', 'Mamokatra ny hira rehetra'); pushState('form-hira-rehetra', 'Mamokatra ny hira rehetra');" class="nav-link" data-component="form-hira-rehetra">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>Mamokatra ny hira rehetra</p>
+                    </a>
+                </li>
+                
+                <!-- Programme Section -->
+                <li class="nav-header">PROGRAMA</li>
+                <li class="nav-item">
+                    <a href="#" onclick="loadComponent('form-programme', 'Mamokatra programa'); pushState('form-programme', 'Mamokatra programa');" class="nav-link" data-component="form-programme">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <p>Mamokatra programa</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</div>

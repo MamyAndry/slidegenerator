@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="css/adminlte.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-editable-select.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/ppt.png" type="image/x-icon">
+    <title>Slidegenerator</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Navigation Bar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <div th:insert="~{fragments/nav-bar :: navbar}"></div>
+        </nav>
+
+        <!-- Sidebar -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <div th:replace="~{fragments/side-bar :: sidebar}"></div>
+        </aside>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0" id="content-title">Tongasoa</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#" onclick="loadComponent('home')">Home</a></li>
+                                <li class="breadcrumb-item active" id="breadcrumb-current">Mombamomba</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid" id="main-content">
+                    <!-- Dynamic content will be loaded here -->
+                    
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2025 <a href="#">Slidegenerator</a>.</strong>
+            Azy avokoa ny zo rehetra.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 2.0.0
+            </div>
+        </footer>
+
+        <!-- Loading overlay -->
+        <div class="overlay dark d-none" id="loading-overlay">
+            <i class="fas fa-2x fa-sync-alt fa-spin"></i>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/adminlte.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery-editable-select.min.js"></script>
+    <script src="js/chosen.jquery.min.js"></script>
+    
+    <!-- SPA Navigation Script -->
+    <script>
+        // ===== SPA NAVIGATION FUNCTIONS =====
+        
+        function showLoadingOverlay() {
+            $('#loading-overlay').removeClass('d-none');
+        }
+        
+        function hideLoadingOverlay() {
+            $('#loading-overlay').addClass('d-none');
+        }
+        
+        function updatePageTitle(title) {
+            if (title) {
+                $('#page-title').text(title);
+                $('#content-title').text(title);
+                $('#breadcrumb-current').text(title);
+            }
+        }
+        
+        function updateActiveMenuItem(componentName) {
+            $('.nav-sidebar .nav-link').removeClass('active');
+            $(`.nav-sidebar .nav-link[data-component="${componentName}"]`).addClass('active');
+        }
+        
+        function displayErrorMessage(componentName) {
+            return `
+                <div class="alert alert-danger">
+                    <h4><i class="icon fa fa-ban"></i> Tsy afaka!</h4>
+                    Tsy afaka naka ny pejy "${componentName}". Manandrama indray.
+                </div>
+            `;
+        }
+        
+        function loadComponent(componentName, title) {
+            showLoadingOverlay();
+            updatePageTitle(title);
+            updateActiveMenuItem(componentName);
+            
+            $.ajax({
+                url: `/component/${componentName}`,
+                method: 'GET',
+                success: function(data) {
+                    $('#main-content').html(data);
+                    initializeFormElements();
+                    hideLoadingOverlay();
+                },
+                error: function(xhr, status, error) {
+                    $('#main-content').html(displayErrorMessage(componentName));
+                    hideLoadingOverlay();
+                }
+            });
+        }
+        
+        // ===== FORM INITIALIZATION FUNCTIONS =====
+        
+        function initializeChosenSelects() {
+            if ($.fn.chosen) {
+                $('.chosen-select').chosen({
+                    no_results_text: "Tsy misy valiny ho an'ny: ",
+                    placeholder_text_single: "Safidio..."
+                });
+            }
+        }
+        
+        function initializeEditableSelects() {
+            if ($.fn.editableSelect) {
+                $('.editable-select, #select-hira, #select-hira-fidirana, #select-hira-fanehoana, #select-hira-famaranana').editableSelect();
+            }
+        }
+        
+        function setupFandraisanaRadioEvents() {
+            $(document).off('change', 'input[name="fandraisana"]').on('change', 'input[name="fandraisana"]', handleFandraisanaChange);
+            $(document).off('click', 'input[name="fandraisana"]').on('click', 'input[name="fandraisana"]', handleFandraisanaClick);
+            $(document).off('click', 'label[for^="fandraisana_boolean"]').on('click', 'label[for^="fandraisana_boolean"]', handleFandraisanaLabelClick);
+        }
+        
+        function setInitialFandraisanaState() {
+            if ($('input[name="fandraisana"]:checked').length === 0) {
+                $('#fandraisana_boolean_false').prop('checked', true);
+            }
+            
+            $('input[name="fandraisana"]:checked').closest('.form-check').addClass('border border-primary bg-light rounded p-2');
+            
+            const initialCheckedValue = $('input[name="fandraisana"]:checked').val();
+            if (initialCheckedValue) {
+                handleHiraFandraisanaVisibility(initialCheckedValue);
+            } else {
+                handleHiraFandraisanaVisibility('false');
+            }
+        }
+        
+        function initializeSpecificComponents() {
+            initializeHiraMaroFunctionality();
+            
+            if ($('form[action="treatment-programa"]').length > 0) {
+                initializeProgramForm();
+            }
+        }
+        
+        function initializeFormElements() {
+            initializeChosenSelects();
+            initializeEditableSelects();
+            setupFandraisanaRadioEvents();
+            setInitialFandraisanaState();
+            initializeSpecificComponents();
+        }
+        
+        // ===== FANDRAISANA RADIO BUTTON FUNCTIONS =====
+        
+        function applyFandraisanaVisualFeedback(selectedRadio) {
+            $('input[name="fandraisana"]').closest('.form-check').removeClass('border border-primary bg-light');
+            if (selectedRadio.is(':checked')) {
+                selectedRadio.closest('.form-check').addClass('border border-primary bg-light rounded p-2');
+            }
+        }
+        
+        function handleFandraisanaChange() {
+            applyFandraisanaVisualFeedback($(this));
+            handleHiraFandraisanaVisibility($(this).val());
+        }
+        
+        function handleFandraisanaClick() {
+            // Additional click handling if needed
+        }
+        
+        function handleFandraisanaLabelClick(e) {
+            // Let the default behavior handle this
+        }
+        
+        // ===== PROGRAM FORM FUNCTIONS =====
+        
+        function validateProgramForm() {
+            const allRadios = $('input[name="fandraisana"]');
+            const checkedRadio = $('input[name="fandraisana"]:checked');
+            
+            if (allRadios.length === 0) {
+                alert('Tsy hita ny safidy ny fisian\'ny fandraisana.');
+                return false;
+            }
+            
+            if (checkedRadio.length === 0) {
+                alert('Safidio raha misy fandraisana (Eny na Tsia)');
+                $('#fandraisana_boolean_false').prop('checked', true);
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function submitProgramForm() {
+            const form = $('form[action="treatment-programa"]');
+            if (form.length > 0) {
+                form.submit();
+            } else {
+                alert('Tsy hita ny form. Mamerenao ny pejy.');
+            }
+        }
+        
+        window.handleProgramSubmit = function() {
+            if (validateProgramForm()) {
+                submitProgramForm();
+            }
+        }
+        
+        // ===== HIRA FANDRAISANA VISIBILITY FUNCTIONS =====
+        
+        function showHiraFandraisanaSection(hiraSection) {
+            hiraSection.slideDown(300);
+            hiraSection.find('select[required]').prop('disabled', false);
+        }
+        
+        function hideHiraFandraisanaSection(hiraSection) {
+            hiraSection.slideUp(300);
+            hiraSection.find('select[required]').prop('disabled', true);
+            hiraSection.find('select').val('');
+        }
+        
+        function handleHiraFandraisanaVisibility(fandraisanaValue) {
+            const hiraSection = $('#hira-fandraisana-section');
+            
+            if (fandraisanaValue === 'true') {
+                showHiraFandraisanaSection(hiraSection);
+            } else {
+                hideHiraFandraisanaSection(hiraSection);
+            }
+        }
+        
+        // ===== PROGRAM FORM INITIALIZATION FUNCTIONS =====
+        
+        function setupRadioButtonDefaults() {
+            const radioButtons = $('input[name="fandraisana"]');
+            
+            if (radioButtons.length > 0) {
+                if ($('input[name="fandraisana"]:checked').length === 0) {
+                    $('#fandraisana_boolean_false').prop('checked', true);
+                }
+                
+                applyFandraisanaVisualFeedback($('input[name="fandraisana"]:checked'));
+                
+                const checkedValue = $('input[name="fandraisana"]:checked').val();
+                handleHiraFandraisanaVisibility(checkedValue);
+                
+                radioButtons.first().trigger('change');
+            }
+        }
+        
+        function initializeProgramForm() {
+            setTimeout(setupRadioButtonDefaults, 200);
+        }
+        
+        // ===== GLOBAL VARIABLES =====
+        
+        var hiraVoasafidy = new Set();
+        
+        // ===== HIRA MARO FUNCTIONALITY FUNCTIONS =====
+        
+        function resetHiraVoasafidy() {
+            hiraVoasafidy = new Set();
+        }
+        
+        function trimSelectOptions() {
+            $('#select-hira option').each(function() {
+                $(this).val($(this).val().trim());
+                $(this).text($(this).text().trim());
+            });
+        }
+        
+        function updateEmptyMessage() {
+            const isEmpty = $('#sortable-list-hira li').length === 0;
+            $('#empty-message').toggle(isEmpty);
+        }
+        
+        function createHiraListItem(value) {
+            const $li = $('<li>').addClass('d-flex justify-content-between align-items-center mb-2 p-2')
+                .css({
+                    background: '#f8f9fa',
+                    border: '1px solid #dee2e6',
+                    borderRadius: '4px',
+                    cursor: 'move'
+                });
+
+            const $checkbox = $('<input>', {
+                type: 'checkbox',
+                name: 'hira',
+                value: value,
+                class: 'btn-check',
+                id: 'hira-' + value.replace(/\s+/g, '-'),
+                checked: true,
+                style: 'display: none;'
+            });
+
+            const $content = $('<div>').addClass('d-flex align-items-center flex-grow-1');
+            const $dragHandle = $('<i>').addClass('fas fa-grip-vertical text-muted mr-2');
+            const $text = $('<span>').text(value).addClass('flex-grow-1');
+            const $removeBtn = $('<button>')
+                .addClass('btn btn-sm btn-outline-danger remove-btn')
+                .html('<i class="fas fa-times"></i>')
+                .attr('type', 'button');
+
+            $content.append($dragHandle, $text);
+            $li.append($content, $checkbox, $removeBtn);
+            
+            return $li;
+        }
+        
+        function addHiraToList() {
+            const value = $('#select-hira').val().trim();
+            if (value !== '') {
+                let oldLength = hiraVoasafidy.size;
+                hiraVoasafidy.add(value);
+                let newLength = hiraVoasafidy.size;
+                
+                if (oldLength !== newLength) {
+                    const $li = createHiraListItem(value);
+                    $('#sortable-list-hira').append($li);
+                    updateEmptyMessage();
+                }
+            }
+        }
+        
+        function removeHiraFromList() {
+            const text = $(this).siblings('div').find('span').text();
+            hiraVoasafidy.delete(text);
+            $(this).closest('li').remove();
+            updateEmptyMessage();
+        }
+        
+        function setupHiraListEvents() {
+            $('#add-hira').off('click').on('click', function (e) {
+                e.preventDefault();
+                addHiraToList();
+            });
+
+            $('#sortable-list-hira').off('click', '.remove-btn').on('click', '.remove-btn', removeHiraFromList);
+        }
+        
+        function initializeSortableList() {
+            if ($('#sortable-list-hira').length > 0) {
+                $('#sortable-list-hira').sortable({
+                    handle: '.fa-grip-vertical',
+                    placeholder: 'ui-state-highlight',
+                    update: function () {
+                    }
+                });
+                updateEmptyMessage();
+            }
+        }
+        
+        window.clearHiraList = function() {
+            hiraVoasafidy.clear();
+            $('#sortable-list-hira').empty();
+            updateEmptyMessage();
+        }
+        
+        function initializeHiraMaroFunctionality() {
+            resetHiraVoasafidy();
+            trimSelectOptions();
+            setupHiraListEvents();
+            initializeSortableList();
+        }
+        
+        // ===== NAVIGATION HISTORY FUNCTIONS =====
+        
+        function handleBrowserNavigation(event) {
+            if (event.state && event.state.component) {
+                loadComponent(event.state.component, event.state.title);
+            }
+        }
+        
+        function pushState(component, title) {
+            const state = { component: component, title: title };
+            history.pushState(state, title, `#${component}`);
+        }
+        
+        function handleHashNavigation() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const menuItem = $(`.nav-sidebar .nav-link[data-component="${hash}"]`);
+                if (menuItem.length) {
+                    const title = menuItem.find('p').text().trim();
+                    loadComponent(hash, title);
+                }
+            } else {
+                loadComponent('home', 'Home');
+                pushState('home', 'Home');
+            }
+        }
+        
+        function handleSuccessMessages() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const successMessage = urlParams.get('success');
+            if (successMessage) {
+                showSuccessMessage(decodeURIComponent(successMessage));
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+        
+        function showSuccessMessage(message) {
+            const alertHtml = `
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <strong>Vita soa aman-tsara!</strong> ${message}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            `;
+            $('#main-content').prepend(alertHtml);
+            
+            setTimeout(function() {
+                $('.alert-success').fadeOut();
+            }, 5000);
+        }
+        
+        // ===== EVENT LISTENERS AND INITIALIZATION =====
+        
+        window.addEventListener('popstate', handleBrowserNavigation);
+        
+        $(document).ready(function() {
+            handleHashNavigation();
+            handleSuccessMessages();
+        });
+    </script>
+</body>
+</html>
