@@ -1,4 +1,4 @@
-package fjkm.slidegenerator.agf;
+package fjkm.agf.slidegenerator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
