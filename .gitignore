@@ -19,6 +19,11 @@ target/
 *.iml
 *.ipr
 
+# Ignore all JAR artifacts
+*.jar
+*.jar.pack
+*.jar.zip
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
