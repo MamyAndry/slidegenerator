@@ -39,7 +39,7 @@ public class MainController {
         try {
             hiraRehetra.init();
             model.addAttribute("list", hiraRehetra.getLisitraNomeraoHira());
-            
+
             // Return the component template
             return "components/" + componentName;
         } catch (Exception e) {
@@ -103,7 +103,8 @@ public class MainController {
             hiraHovokarina.constructHiraPresentation(path);
             String message = "Voaorina avokoa ny hira " + ObjectUtility.sexifyToUpperCase(hira);
             model.addAttribute("message", message);
-            return "redirect:/?success=" + java.net.URLEncoder.encode(message, "UTF-8");
+            model.addAttribute("list", hiraRehetra.getLisitraNomeraoHira());
+            return "redirect:/?success=" + java.net.URLEncoder.encode(message, "UTF-8") + "#form-hira";
         } catch (Exception e) {
             model.addAttribute("message", e.getMessage());
             return "error";
@@ -148,7 +149,7 @@ public class MainController {
             return "error";
         }
     }
-    
+
     @PostMapping("treatment-programa")
     public String treatProgramaSlide(@ModelAttribute SlidePecularitiesMappingVersionTwo pecularitiesMapping,
             Model model) {
@@ -178,7 +179,9 @@ public class MainController {
                     pecularitiesMapping.getFontSizeHira(),
                     pecularitiesMapping.getImageOpacity(),
                     pecularitiesMapping.isFandraisana());
-            return "redirect:/?success=" + java.net.URLEncoder.encode("Vita soa aman-tsara ny fanamboarana", "UTF-8");
+            String message = "Vita soa aman-tsara ny fanamboarana ny programa " + pecularitiesMapping.getName();
+            return "redirect:/?success=" + java.net.URLEncoder.encode(message, "UTF-8") + "#form-hira-maro";
+
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("message", e.toString());
