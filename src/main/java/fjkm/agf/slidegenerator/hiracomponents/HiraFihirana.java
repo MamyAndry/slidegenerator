@@ -113,7 +113,7 @@ public class HiraFihirana {
                     i++;
                 }else{
                     line = lines[i] + "\n" + lines[i+1]; 
-                    if(line.length() >= 36) { // if line is too long, split it in two
+                    if(line.length() > 34) { // if line is too long, split it in two
                         lineTemp = lines[i];
                         line = lineTemp;
                         i++;
