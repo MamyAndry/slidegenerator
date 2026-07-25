@@ -61,7 +61,7 @@ public class Slide {
         return modifiedImage;
     }
 
-    public void createSlideHira(XMLSlideShow ppt) throws Exception {
+    public void createSlideHira(XMLSlideShow ppt, boolean isTextLong) throws Exception {
         if (this.getText().equals(""))
             return;
         ppt.setPageSize(new java.awt.Dimension(this.slideWidth, this.slideheight)); // Set width to 1920 and height to
@@ -90,7 +90,8 @@ public class Slide {
         int titleHeight = ppt.getPageSize().height / 2; // Adjust based on the font size
 
         titleShape.setAnchor(
-                new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight));
+                isTextLong ? new Rectangle(0, 0, slideWidth, titleHeight)
+                           : new Rectangle(0, (slideHeight - titleHeight) / 4, slideWidth, titleHeight));
     }
 
     public void createSlideVakiteny(XMLSlideShow ppt, String picture) throws Exception {

@@ -125,10 +125,8 @@ public class HiraFihirana {
                 line = lines[i];
                 i += 2;
             }
-            // line = lines[i]; 
-            // i += 1;
             slide.setText(line.toUpperCase());
-            slide.createSlideHira(ppt);
+            slide.createSlideHira(ppt, line.length() == 34);
         }
         //SAVE PRESENTATION
         String name = this.getSokajy() + " " + this.getLaharana();
@@ -148,7 +146,7 @@ public class HiraFihirana {
         slide.setText(this.getSokajy() + " " + this.getLaharana());
         slide.setBold(true);
         slide.setFontSize(this.getFontSize());
-        slide.createSlideHira(ppt);
+        slide.createSlideHira(ppt, lines.length == 34);
         for (int i = 0; i <= limit ; i += 2) {
             if(i != limit){
                 line = lines[i] + "\n" + lines[i+1];
@@ -156,7 +154,7 @@ public class HiraFihirana {
                 line = lines[i];
             }
             slide.setText(line.toUpperCase());
-            slide.createSlideHira(ppt);
+            slide.createSlideHira(ppt, line.length()== 34);
         }
         //SAVE PRESENTATION
         String name = this.getLaharana() + ".pptx";
