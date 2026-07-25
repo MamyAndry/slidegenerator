@@ -1,3 +1,0 @@
-@echo off 
-echo Starting Slidegenerator... 
-start /min java -jar slidegenerator-0.0.1-SNAPSHOT.jar 
