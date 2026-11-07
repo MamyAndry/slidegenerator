@@ -133,17 +133,17 @@
                     "hira":false
                 },
                 "tapany_27": {
-                    "title":"Vavaka",
+                    "title":"Feon-javamaneno",
                     "vakiteny":false,
                     "hira":false
                 },
                 "tapany_28": {
-                    "title":"Asa Vavolombelona",
+                    "title":"Vavaka",
                     "vakiteny":false,
                     "hira":false
                 },
                 "tapany_29": {
-                    "title":"Tsodrano",
+                    "title":"Asa Vavolombelona",
                     "vakiteny":false,
                     "hira":false
                 },
@@ -153,9 +153,9 @@
                     "hira":true
                 },
                 "tapany_31": {
-                    "title":"Trinite",
+                    "title":"Tsodrano",
                     "vakiteny":false,
-                    "hira":true
+                    "hira":false
                 },
                 "tapany_32": {
                     "title":"Firavana",
@@ -282,14 +282,14 @@
                     "hira":false
                 },
                 "tapany_24": {
-                    "title":"Tsodrano",
-                    "vakiteny":false,
-                    "hira":false
-                },
-                "tapany_25": {
                     "title":"Hira",
                     "vakiteny":false,
                     "hira":true
+                },
+                "tapany_25": {
+                    "title":"Tsodrano",
+                    "vakiteny":false,
+                    "hira":false
                 },
                 "tapany_26": {
                     "title":"Trinite",
@@ -441,14 +441,14 @@
                     "hira":false
                 },
                 "tapany_28": {
-                    "title":"Tsodrano",
-                    "vakiteny":false,
-                    "hira":false
-                },
-                "tapany_29": {
                     "title":"Hira",
                     "vakiteny":false,
                     "hira":true
+                },
+                "tapany_29": {
+                    "title":"Tsodrano",
+                    "vakiteny":false,
+                    "hira":false
                 },
                 "tapany_30": {
                     "title":"Trinite",
@@ -580,14 +580,14 @@
                     "hira":false
                 },
                 "tapany_25": {
-                    "title":"Tsodrano",
-                    "vakiteny":false,
-                    "hira":false
-                },
-                "tapany_26": {
                     "title":"Hira",
                     "vakiteny":false,
                     "hira":true
+                },
+                "tapany_26": {
+                    "title":"Tsodrano",
+                    "vakiteny":false,
+                    "hira":false
                 },
                 "tapany_27": {
                     "title":"Trinite",
@@ -704,14 +704,14 @@
                     "hira":false
                 },
                 "tapany_21": {
-                    "title":"Fanaovan-tsonia",
-                    "vakiteny":false,
-                    "hira":true
-                },
-                "tapany_22": {
                     "title":"Tsodrano",
                     "vakiteny":false,
                     "hira":false
+                },
+                "tapany_22": {
+                    "title":"Fanaovan-tsonia",
+                    "vakiteny":false,
+                    "hira":true
                 },
                 "tapany_23": {
                     "title":"Trinite",

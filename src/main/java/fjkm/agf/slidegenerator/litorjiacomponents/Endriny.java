@@ -1,6 +1,8 @@
 package fjkm.agf.slidegenerator.litorjiacomponents;
 
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
 
@@ -31,6 +33,19 @@ public class Endriny {
     double fontSizeHira;
     double imageOpacity;
     
+    /** Sections by tapany number; the numbering in litorjia.json can have gaps. */
+    private List<Tapany> sectionsInOrder(){
+        return this.getFizarana().keySet().stream()
+            .sorted(Comparator.comparingInt((String key) -> Integer.parseInt(key.substring("tapany_".length()))))
+            .map(this.getFizarana()::get)
+            .toList();
+    }
+
+    /** litorjia.json may break a title over two lines, so line breaks are ignored. */
+    private static boolean hasTitle(Tapany tapany, String title){
+        return tapany.getTitle().replace("\n", "").equals(title);
+    }
+
     public String turnArrayToUniqueString(String[] vakiteny){
         String res = "";
         for (String elt : vakiteny) {
@@ -56,7 +71,6 @@ public class Endriny {
 
         //ADDING SLIDE
         int i = 0;
-        String key = "tapany_";
         HiraFihirana hiraFihirana;
         hiraFidirana = hiraFidirana.toLowerCase().replace(" ", "_");
         hiraFihirana = hiraRehetra.getLisitraHira().get(hiraFidirana);
@@ -70,9 +84,8 @@ public class Endriny {
         slide.setImageOpacity(this.getImageOpacity());
         slide.setText(ObjectUtility.sexifyToUpperCase(hiraFidirana));
         slide.createSlide(ppt, this.getHiraPicture());
-        for(int j = 1; j <= this.getFizarana().size(); j++){
-            Tapany temp = this.getFizarana().get(key + j);
-            if(temp.getTitle().equals("Fiderana an'Andriamanitra") && temp.isVakiteny()){
+        for(Tapany temp : this.sectionsInOrder()){
+            if(hasTitle(temp, "Fiderana an'Andriamanitra") && temp.isVakiteny()){
                 slide.setText(vakitenyFiderana);
                 slide.createSlide(ppt, this.getVakitenyPicture());
             } else if(temp.getTitle().equals("Fotoana ho an'ny ankizy sy ny Tanora")){
@@ -136,7 +149,7 @@ public class Endriny {
                     slide.createSlide(ppt, "");
                     i++;
                 }
-            }else if(temp.getTitle().equals("Asan'\nAndriamanitra")){
+            }else if(hasTitle(temp, "Asan'Andriamanitra")){
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getAsanAndriamanitraPicture());
                 for( String elt : asanAndriamanitra){
@@ -165,7 +178,6 @@ public class Endriny {
     ) throws Exception{
 
         //ADDING SLIDE
-        String key = "tapany_";
         HiraFihirana hiraFihirana;
         hiraFidirana = hiraFidirana.toLowerCase().replace(" ", "_");
         hiraFihirana = hiraRehetra.getLisitraHira().get(hiraFidirana);
@@ -179,9 +191,8 @@ public class Endriny {
         slide.setImageOpacity(this.getImageOpacity());
         slide.setText(ObjectUtility.sexifyToUpperCase(hiraFidirana));
         slide.createSlide(ppt, this.getHiraPicture());
-        for(int j = 1; j <= this.getFizarana().size(); j++){
-            Tapany temp = this.getFizarana().get(key + j);
-            if(temp.getTitle().equals("Fiderana an'Andriamanitra") && temp.isVakiteny()){
+        for(Tapany temp : this.sectionsInOrder()){
+            if(hasTitle(temp, "Fiderana an'Andriamanitra") && temp.isVakiteny()){
                 slide.setText(vakitenyFiderana);
                 slide.createSlide(ppt, this.getVakitenyPicture());
             } else if(temp.getTitle().equals("Fotoana ho an'ny ankizy sy ny Tanora")){
@@ -222,7 +233,7 @@ public class Endriny {
                     slide.setText(elt);
                     slide.createSlide(ppt, "");
                 } 
-            }else if(temp.getTitle().equals("Asan'\nAndriamanitra")){
+            }else if(hasTitle(temp, "Asan'Andriamanitra")){
                 slide.setText(temp.getTitle().toUpperCase());
                 slide.createSlide(ppt, this.getAsanAndriamanitraPicture());
                 for( String elt : asanAndriamanitra){
